@@ -8,12 +8,12 @@
 |avatar_image|string|null: true|
 
 ### Assosiation
-has_one :user_details, dependent: :destroy
-has_one :user_addresses, dependent: :destroy
-has_one :credit_cards, dependent: :destroy
-has_many :points, dependent: :destroy
-has_many :comments, dependent: :destroy
-has_many :products, dependent: :destroy
+has_one :user_details, dependent: :destroy  
+has_one :user_addresses, dependent: :destroy  
+has_one :credit_cards, dependent: :destroy  
+has_many :points, dependent: :destroy  
+has_many :comments, dependent: :destroy  
+has_many :products, dependent: :destroy  
 
 ## user_detailsテーブル
 |Column|Type|Options|
@@ -27,7 +27,7 @@ has_many :products, dependent: :destroy
 |user_id|references|foreign_key: true, null:false|
 
 ### Assosiation
-belongs_to :user
+belongs_to :user  
 
 ## user_addressesテーブル
 |Column|Type|Options|
@@ -41,7 +41,7 @@ belongs_to :user
 |user_id|references|foreign_key: true, null:false|
 
 ### Assosiation
-belongs_to :user
+belongs_to :user  
 
 ## credit_cardsテーブル
 |Column|Type|Options|
@@ -53,7 +53,7 @@ belongs_to :user
 |user_id|references|foreign_key: true, null:false|
 
 ### Assosiation
-belongs_to :user
+belongs_to :user  
 
 ## commentsテーブル
 |Column|Type|Options|
@@ -64,8 +64,8 @@ belongs_to :user
 |item_deal|string|null: false|
 
 ### Assosiation
-belongs_to :user
-belongs_to :item
+belongs_to :user  
+belongs_to :product
 
 
 
@@ -84,11 +84,11 @@ belongs_to :item
 |deal_state|string|nill: true|
 
 ### Assosiation
-has_many :comments, dependent: :destroy
-has_many :images, dependent: :destroy
-has_one :delivery, dependent: :destroy
-belongs_to :user
-belongs_to :brand
+has_many :comments, dependent: :destroy  
+has_many :images, dependent: :destroy  
+has_one :delivery, dependent: :destroy  
+belongs_to :user  
+belongs_to :brand  
 belongs_to :category
 
 
@@ -110,7 +110,7 @@ belongs_to :product
 |ancestry|string|null:false|
 
 ### Assosiation
-has_many :products
+has_many :products  
 has_ancestry
 
 
@@ -129,5 +129,5 @@ has_many :products
 |product|references|null: false, foreign_key: true|
 
 ### Assosiation
-belongs_to :user
+belongs_to :user  
 belongs_to :product
