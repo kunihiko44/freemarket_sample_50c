@@ -5,7 +5,7 @@
 |------|-----|------|
 |nickname|string|null:false|
 |introduction|text|null: true|
-|avatar_image|string|null: true|
+|icon|string|null: true|
 
 ### Assosiation
 has_one :user_details, dependent: :destroy  
@@ -32,12 +32,11 @@ belongs_to :user
 ## user_addressesテーブル
 |Column|Type|Options|
 |------|-----|------|
-|postal_code|string|null:false|
+|postcode|string|null:false|
 |country_id|interger|null:false|
 |city|string|null:false|
 |address|string|null:false|
 |building_name|string|null: true|
-|phone_number|string|null:false|
 |user_id|references|foreign_key: true, null:false|
 
 ### Assosiation
@@ -47,9 +46,9 @@ belongs_to :user
 |Column|Type|Options|
 |------|-----|------|
 |card_number|integer|null:false|
-|card_manth|integer|null: false|
+|card_month|integer|null: false|
 |card_year|integer|null: false|
-|cecuritycode|integer|null: false|
+|securitycode|integer|null: false|
 |user_id|references|foreign_key: true, null:false|
 
 ### Assosiation
