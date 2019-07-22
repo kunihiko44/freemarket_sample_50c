@@ -13,7 +13,8 @@ has_one :user_addresses, dependent: :destroy
 has_one :credit_cards, dependent: :destroy  
 has_many :points, dependent: :destroy  
 has_many :comments, dependent: :destroy  
-has_many :products, dependent: :destroy  
+has_many :products, dependent: :destroy 
+has_many :likes, dependent: :destroy  
 
 ## user_detailsテーブル
 |Column|Type|Options|
@@ -59,8 +60,8 @@ belongs_to :user
 |------|-----|------|
 |comment|text|null: false|
 |user_id|references|foreign_key: true, null: false|
-|item_id|references|foreign_key: true, null: false|
-|item_deal|string|null: false|
+|product_id|references|foreign_key: true, null: false|
+|product_deal|string|null: false|
 
 ### Assosiation
 belongs_to :user  
@@ -75,7 +76,7 @@ belongs_to :product
 |introduction|text|null: false|
 |price|integer|null: false|
 |size|string|null: false|
-|item_state|string|null: false|
+|product_state|string|null: false|
 |seller_id|references|foreign_key: true, null: false|
 |buyer_id|references|foreign_key: true,null: true|
 |brand|references|foreign_key: true|
@@ -85,6 +86,7 @@ belongs_to :product
 ### Assosiation
 has_many :comments, dependent: :destroy  
 has_many :images, dependent: :destroy  
+has_many :likes, dependent: :destroy  
 has_one :delivery, dependent: :destroy  
 belongs_to :user  
 belongs_to :brand  
@@ -95,7 +97,7 @@ belongs_to :category
 |Column|Type|Options|
 |------|-----|------|
 |image|string|null: false|
-|item_id|references|foreign_key: true, null:false|
+|product_id|references|foreign_key: true, null:false|
 
 ### Assosiation
 belongs_to :product
