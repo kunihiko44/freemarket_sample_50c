@@ -6,6 +6,8 @@
 |nickname|string|null:false|
 |introduction|text|null: true|
 |icon|string|null: true|
+|email|string|null:false,unique:true|
+|password|string|null:false|
 
 ### Assosiation
 has_one :user_details, dependent: :destroy  
@@ -76,7 +78,7 @@ belongs_to :product
 |introduction|text|null: false|
 |price|integer|null: false|
 |size|string|null: false|
-|product_state|string|null: false|
+|state|string|null: false|
 |seller_id|references|foreign_key: true, null: false|
 |buyer_id|references|foreign_key: true,null: true|
 |brand|references|foreign_key: true|
@@ -128,6 +130,29 @@ has_many :products
 |------|-----|------|
 |user|references|null: false, foreign_key: true|
 |product|references|null: false, foreign_key: true|
+
+### Assosiation
+belongs_to :user  
+belongs_to :product
+
+## ordersテーブル
+|Column|Type|Options|
+|------|-----|------|
+|product_id|references|foreign_key: true, null: false|
+|seller_id|references|foreign_key: true, null: false|
+|buyer_id|references|foreign_key: true,null: true|
+|state|string|null: false|
+
+### Assosiation
+belongs_to :user  
+belongs_to :product
+
+## reviewsテーブル
+|Column|Type|Options|
+|------|-----|------|
+|review|text|null:false|
+|user_id|integer|foreign_key:true,null:false|
+|product_id|integer|foreign_key:true,null:false|
 
 ### Assosiation
 belongs_to :user  
