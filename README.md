@@ -10,10 +10,9 @@
 |password|string|null:false|
 
 ### Assosiation
-has_one :user_details, dependent: :destroy  
-has_one :user_addresses, dependent: :destroy  
-has_one :credit_cards, dependent: :destroy  
-has_many :points, dependent: :destroy  
+has_one :user_detail, dependent: :destroy  
+has_one :user_addresse, dependent: :destroy  
+has_one :credit_card, dependent: :destroy  
 has_many :comments, dependent: :destroy  
 has_many :products, dependent: :destroy 
 has_many :likes, dependent: :destroy  
@@ -36,9 +35,9 @@ belongs_to :user
 |Column|Type|Options|
 |------|-----|------|
 |postcode|string|null:false|
-|country_id|interger|null:false|
+|prefecture|interger|null:false|
 |city|string|null:false|
-|address|string|null:false|
+|block|string|null:false|
 |building_name|string|null: true|
 |user_id|references|foreign_key: true, null:false|
 
@@ -79,11 +78,16 @@ belongs_to :product
 |price|integer|null: false|
 |size|string|null: false|
 |state|string|null: false|
-|seller_id|references|foreign_key: true, null: false|
+|user_id|references|foreign_key: true, null: false|
 |buyer_id|references|foreign_key: true,null: true|
 |brand|references|foreign_key: true|
 |category|references|foreign_key: true|
 |deal_state|string|nill: true|
+|delivery_date|integer|null:false|
+|delivery_cost|integer|null:false|
+|delivery_method|integer|null:false|
+|delivery_prefecture|integer|null:false|
+||||
 
 ### Assosiation
 has_many :comments, dependent: :destroy  
