@@ -87,7 +87,6 @@ belongs_to :product
 |delivery_cost|integer|null:false|
 |delivery_method|integer|null:false|
 |delivery_prefecture|integer|null:false|
-||||
 
 ### Assosiation
 has_many :comments, dependent: :destroy  
