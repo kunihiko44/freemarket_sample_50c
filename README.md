@@ -14,8 +14,10 @@ has_one :user_detail, dependent: :destroy
 has_one :user_addresse, dependent: :destroy  
 has_one :credit_card, dependent: :destroy  
 has_many :comments, dependent: :destroy  
+has_many :reviews, dependent: :destroy  
 has_many :products, dependent: :destroy 
 has_many :likes, dependent: :destroy  
+has_many :orders, dependent: :destroy  
 
 ## user_detailsテーブル
 |Column|Type|Options|
@@ -92,7 +94,9 @@ belongs_to :product
 has_many :comments, dependent: :destroy  
 has_many :images, dependent: :destroy  
 has_many :likes, dependent: :destroy  
+has_many :reviews, dependent: :destroy  
 has_one :delivery, dependent: :destroy  
+has_one :order  
 belongs_to :user  
 belongs_to :brand  
 belongs_to :category
