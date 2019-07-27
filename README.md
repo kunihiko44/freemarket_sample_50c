@@ -11,7 +11,7 @@
 
 ### Assosiation
 has_one :user_detail, dependent: :destroy  
-has_one :user_addresse, dependent: :destroy  
+has_one :user_address, dependent: :destroy  
 has_one :credit_card, dependent: :destroy  
 has_many :comments, dependent: :destroy  
 has_many :reviews, dependent: :destroy  
@@ -27,7 +27,7 @@ has_many :orders, dependent: :destroy
 |first_name_kana|string|null:false|
 |last_name_kana|string|null:false|
 |birthday|string|null:false|
-|phonenumber|string|null:false|
+|phone_number|string|null:false|
 |user_id|references|foreign_key: true, null:false|
 
 ### Assosiation
@@ -52,7 +52,7 @@ belongs_to :user
 |card_number|integer|null:false|
 |card_month|integer|null: false|
 |card_year|integer|null: false|
-|securitycode|integer|null: false|
+|security_code|integer|null: false|
 |user_id|references|foreign_key: true, null:false|
 
 ### Assosiation
@@ -61,7 +61,7 @@ belongs_to :user
 ## commentsテーブル
 |Column|Type|Options|
 |------|-----|------|
-|comment|text|null: false|
+|content|text|null: false|
 |user_id|references|foreign_key: true, null: false|
 |product_id|references|foreign_key: true, null: false|
 |product_deal|string|null: false|
@@ -127,7 +127,7 @@ has_ancestry
 ## brandsテーブル
 |Column|Type|Options|
 |------|-----|------|
-|brand_name|string|null: false, index: true|
+|name|string|null: false, index: true|
 
 ### Assosiation
 has_many :products
