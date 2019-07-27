@@ -79,7 +79,7 @@ belongs_to :product
 |introduction|text|null: false|
 |price|integer|null: false|
 |size|string|null: false|
-|state|string|null: false|
+|state|integer|null: false|
 |user_id|references|foreign_key: true, null: false|
 |buyer_id|references|foreign_key: true,null: true|
 |brand|references|foreign_key: true|
