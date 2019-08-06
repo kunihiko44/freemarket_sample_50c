@@ -1,0 +1,82 @@
+= render partial: "layouts/header" 
+
+  .container
+    .container__banner-top
+      = image_tag "https:////www-mercari-jp.akamaized.net/assets/img/featured/camp/index/index_keyvisual.png?891577966  ", class: "image"
+    .container__main
+      %h2 ピックアップカテゴリー
+      .pickup-box  
+        = link_to "レディース新着アイテム"
+        .pickup-box__items
+          .items__box
+            .items__product
+              = image_tag "https://static.mercdn.net/thumb/photos/m84815040844_1.jpg?1563714873", class: "image"
+              = link_to "かばん"
+            .items__product
+              = image_tag "https://static.mercdn.net/thumb/photos/m66530727648_1.jpg?1563762901", class: "image"
+              = link_to "フック"
+            .items__product
+              = image_tag "https://static.mercdn.net/thumb/photos/m46541478663_1.jpg?1563762610", class: "image"
+              = link_to "絵本"
+            .items__product
+              = image_tag "https://static.mercdn.net/thumb/photos/m85783559922_1.jpg?1563763887", class: "image"
+              = link_to "マグカップ"
+        .pickup-box__view-all
+          = link_to "全ての商品を見る"
+      .pickup-box  
+        = link_to "メンズ新着アイテム"
+        .pickup-box__items
+          .items__box
+            .items__product
+              = image_tag "https://static.mercdn.net/thumb/photos/m84815040844_1.jpg?1563714873", class: "image"
+              = link_to "かばん"
+            .items__product
+              = image_tag "https://static.mercdn.net/thumb/photos/m66530727648_1.jpg?1563762901", class: "image"
+              = link_to "フック"
+            .items__product
+              = image_tag "https://static.mercdn.net/thumb/photos/m46541478663_1.jpg?1563762610", class: "image"
+              = link_to "絵本"
+            .items__product
+              = image_tag "https://static.mercdn.net/thumb/photos/m85783559922_1.jpg?1563763887", class: "image"
+              = link_to "マグカップ"
+        .pickup-box__view-all
+          = link_to "すべての商品を見る"
+      .pickup-box  
+        = link_to "ベビー・キッズ 新着アイテム"
+        .pickup-box__items
+          .items__box
+            .items__product
+              = image_tag "https://static.mercdn.net/thumb/photos/m84815040844_1.jpg?1563714873", class: "image"
+              = link_to "かばん"
+            .items__product
+              = image_tag "https://static.mercdn.net/thumb/photos/m66530727648_1.jpg?1563762901", class: "image"
+              = link_to "フック"
+            .items__product
+              = image_tag "https://static.mercdn.net/thumb/photos/m46541478663_1.jpg?1563762610", class: "image"
+              = link_to "絵本"
+            .items__product
+              = image_tag "https://static.mercdn.net/thumb/photos/m85783559922_1.jpg?1563763887", class: "image"
+              = link_to "マグカップ"
+        .pickup-box__view-all
+          = link_to "全ての商品を見る"
+    .aside
+      .aside__banner
+
+
+  .sell-button
+    %h3.sell-button__text 出品
+    %i.fa.fa-camera
+  
+  .banner
+    .banner__pc
+      .banner__pc__inner
+        %h2スマホでかんたんフリマアプリ
+        %p今すぐ無料ダウンロード!
+      .banner__pc__app
+        = image_tag "//www-mercari-jp.akamaized.net/assets/img/common/common/mercari_icon.png?2927923569", class: "mercari"
+        = image_tag "https://www-mercari-jp.akamaized.net/assets/img/common/common/app-store.svg?2927923569", class: "app"
+        = image_tag "https://www-mercari-jp.akamaized.net/assets/img/common/common/google-play.svg?2927923569", class: "google"
+      .banner__pc__img
+        = image_tag "https://www-mercari-jp.akamaized.net/assets/img/common/jp/download_content_pc.png?891577966", class: "img"
+
+= render partial: "layouts/footer"
