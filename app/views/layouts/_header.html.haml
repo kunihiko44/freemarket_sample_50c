@@ -6,24 +6,23 @@
         = f.text_field :keyword, class: "header__container__search__input", type: "search", name: "keyword", placeholder: "何かお探しですか？"
     .header__container__navigation
       .navigation-left
-        = fa_icon 'picture-o', class: 'icon'
+        .i.fa.fa-camera
         %ul#dropmenu
           %li
-            %i.fas.fa-align-justify
-            %a{:href => "#"} カテゴリから探す
+            = link_to 'カテゴリから探す', '#'
             %ul
               %li
-                %a{:href => "#"} サブメニュー
+                = link_to 'サブメニュー', '#'
               %li
-                %a{:href => "#"} サブメニュー
+                = link_to 'サブメニュー', '#'
         %ul#dropmenu
           %li
-            %a{:href => "#"} ブランドから探す
+            = link_to 'ブランドから探す', '#'
             %ul
               %li
-                %a{:href => "#"} シャネル
+                = link_to 'シャネル', '#'
               %li
-                %a{:href => "#"} ナイキ
+                = link_to 'ナイキ', '#'
       .navigation-right
         .navigation-right__registration
           = link_to "新規会員登録"
