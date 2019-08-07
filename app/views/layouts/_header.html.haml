@@ -3,20 +3,25 @@
     .header__container__search
       = image_tag "https://www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?2927923569", class: "header__container__search__logo"
       = form_with local: true, class: "header__container__search__form" do |f|
-        = f.text_field :keyword, class: "header__container__search__input", type: "search", name: "keyword", placeholder: "何かお探しですか？"
+        = f.text_field :keyword, class: "header__container__search__input", type: "search", name: "keyword", placeholder: "何かお探しですか？"        
     .header__container__navigation
       .navigation-left
-        .i.fa.fa-camera
         %ul#dropmenu
           %li
+            .i.fa.fa-bars
             = link_to 'カテゴリから探す', '#'
             %ul
               %li
-                = link_to 'サブメニュー', '#'
+                = link_to 'レディース', '#'
               %li
-                = link_to 'サブメニュー', '#'
+                = link_to 'メンズ', '#'
+              %li
+                = link_to 'メンズ', '#'
+
+        
         %ul#dropmenu
           %li
+            .i.fa.fa-tags
             = link_to 'ブランドから探す', '#'
             %ul
               %li
