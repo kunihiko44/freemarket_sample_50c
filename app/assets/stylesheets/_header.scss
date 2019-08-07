@@ -26,6 +26,10 @@
         line-height: 1.5;
         font-size: 16px;
         background: #f5f5f5;
+      .fa{
+        margin-bottom: 20px;
+        float:right;
+      }
       }
     }
     &__navigation {
@@ -99,6 +103,10 @@
     margin: 0;
     padding: 0;
     text-align: center;
+    .fa{
+      float:left;
+      line-height: 2;
+    }
     a {
       display: block;
       margin: 0;
@@ -106,6 +114,7 @@
       font-weight: bold;
       line-height: 2.5;
       text-decoration: none;
+      padding-right:10px;
     }
     ul {
       list-style: none;
@@ -149,11 +158,26 @@
         border-bottom: 1px solid #fff;
         &:first-child {
           border-top: 0;
+          a {
+            border-radius: 0 0 3px 3px;
+            background: #ea352d;
+            color:#fff;
+          }
+        }
+        &:nth-child(2) {
+          border-top: 0;
+          a {
+            border-radius: 0 0 3px 3px;
+            background: #ea352d;
+            color:#fff;
+          }
         }
         &:last-child {
           border-bottom: 0;
           a {
             border-radius: 0 0 3px 3px;
+            background: #ea352d;
+            color:#fff;
           }
         }
       }
