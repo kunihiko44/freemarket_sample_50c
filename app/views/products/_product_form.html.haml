@@ -1,0 +1,119 @@
+.header 
+  .header__logo
+    = image_tag "common/logo.svg", alt: "mercari", height: "49", width: "185"
+
+.body
+  .product-exhibition
+    .product-exhibition__head 商品情報を入力
+    
+    -# 出品画像
+    .product-exhibition__form__group
+      %span.product-exhibition__form__group__large-label 出品画像
+      %span.product-exhibition__form__group__necessary 必須
+      %p.product-exhibition__form__group__notice 最大10枚までアップロードできます
+      %p ※入力フォーム
+      %p ドラッグアンドドロップ
+      %p またはクリックしてファイルをアップロード
+
+    -# 商品名、商品の説明
+    .product-exhibition__form__group
+      %span.product-exhibition__form__group__label 商品名
+      %span.product-exhibition__form__group__necessary 必須
+      .product-exhibition__form__group__text-box
+        = form_with(model: @product, local: true) do |f|
+          = f.text_field :name, autofocus: true, class: "product-exhibition__form__group__text-box__field", placeholder: "商品名（必須40文字まで）"
+
+      %span.product-exhibition__form__group__label 商品の説明
+      %span.product-exhibition__form__group__necessary 必須
+      .product-exhibition__form__group__text-box
+        = form_with(model: @product, local: true) do |f|
+          = f.text_area :description, autofocus: true, class: "product-exhibition__form__group__text-box__area", placeholder: "商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。"
+
+
+    -# 商品の詳細
+    .product-exhibition__form__group
+      %span.product-exhibition__form__group__small-label 商品の詳細
+      %span.product-exhibition__form__group__label カテゴリー
+      %span.product-exhibition__form__group__necessary 必須
+      %p ※選択フォーム
+      %span.product-exhibition__form__group__label 商品の状態
+      %span.product-exhibition__form__group__necessary 必須
+      %p ※選択フォーム
+
+
+    -# 配送に付いて
+    .product-exhibition__form__group
+      %span.product-exhibition__form__group__small-label 配送について
+      = link_to "?", class: "product-exhibition__form__group__small-label__help"
+      %span.product-exhibition__form__group__label 配送料の負担
+      %span.product-exhibition__form__group__necessary 必須
+      %p ※選択フォーム
+      %span.product-exhibition__form__group__label 発送元の地域
+      %span.product-exhibition__form__group__necessary 必須
+      .product-exhibition__form__group__select
+
+      %span.product-exhibition__form__group__label 発送までの日数
+      %span.product-exhibition__form__group__necessary 必須
+      %p ※選択フォーム
+
+
+    -# 販売価格
+    .product-exhibition__form__group
+      %span.product-exhibition__form__group__small-label 販売価格(300〜9,999,999)
+      = link_to "?", class: "product-exhibition__form__group__small-label__help"
+      .product-exhibition__form__group__price-list
+        .product-exhibition__form__group__price-list__price
+          .product-exhibition__form__group__price-list__price__left
+            %span.product-exhibition__form__group__label 価格
+            %span.product-exhibition__form__group__necessary 必須
+          .product-exhibition__form__group__price-list__price__right
+            %span ¥
+            .product-exhibition__form__group__text-box
+              = form_with(model: @product, local: true) do |f|
+                = f.text_field :price, autofocus: true, class: "product-exhibition__form__group__text-box__field__price",placeholder: "例）300"
+        .product-exhibition__form__group__price-list__fee
+          .product-exhibition__form__group__price-list__fee__left
+            %p 販売手数料(10%)
+          .product-exhibition__form__group__price-list__fee__right
+            %p -
+        .product-exhibition__form__group__price-list__profit
+          .product-exhibition__form__group__price-list__profit__left
+            %p 販売利益
+          .product-exhibition__form__group__price-list__profit__right
+            %p -
+
+
+    -# 確認事項、出品ボタン、もどるボタン
+    .product-exhibition__form__group
+      %p
+        = link_to "禁止されている出品"
+        %span 、
+        = link_to "行為"
+        %span を必ずご確認ください。
+      %p 
+        %span またブランド品でシリアルナンバー等がある場合はご記載ください。
+        %span 
+        =link_to "偽ブランドの販売"
+        %span は犯罪であり処罰される可能性があります。
+      %p 
+        %span また、出品をもちまして
+        %span 
+        =link_to "加盟店規約"
+        %span に同意したことになります。
+      .product-exhibition__form__group__actions
+        = form_with(model: @product, local: true) do |f|
+          = f.submit "出品する"
+      .product-exhibition__form__group__return
+        = link_to "もどる" ,root_path, class: "product-exhibition__form__group__return"
+
+
+.footer 
+  %span.footer__policy 
+    = link_to "プライバシーポリシー"
+  %span.footer__terms 
+    = link_to "メルカリ利用規約"
+  %span.footer__law
+    = link_to "特定商取引に関する表記"
+  .footer__logo
+    = image_tag 'common/logo-gray.svg', alt: 'mercari', height: '65', width: '80'
+  .footer__trademark ©️ 2019 Mercari

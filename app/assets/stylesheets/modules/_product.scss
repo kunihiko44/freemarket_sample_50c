@@ -1,0 +1,205 @@
+*{
+  box-sizing: border-box;
+}
+
+.header{
+  height: 128px;
+  background-color: #f5f5f5;
+  position: relative;
+
+  &__logo{
+    height:49px;
+    width: 193px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+  }
+}
+
+.body{
+  background-color: #f5f5f5;
+  
+  .product-exhibition{
+    width: 700px;
+    background-color: white;
+    margin: 0 auto;
+  
+    &__head{
+      width: 100%;
+      height: 97px;
+      color: black;
+      font-size: 22px;
+      font-weight: bold;
+      text-align: center;
+      padding-top: 32px;
+    }
+  
+    &__form{
+      width: 100%;
+  
+      &__group{
+        width: 100%;
+        padding: 40px;
+        border-top: solid 1px;
+        border-color: #eee;
+        
+        &__large-label{
+          font-size: 16px;
+          font-weight: bold;
+        }
+
+        &__necessary{
+          font-size: 12px;
+          font-weight: bold;
+          color: #fff;
+          background-color: #ea352d;
+          vertical-align: top;
+          margin: 0 0 0 8px;
+          padding: 2px 4px;
+          border-radius: 2px;
+        }
+
+        &__notice{
+          font-size: 14px;
+          margin: 8px 0 0;
+          color: #333;
+        }
+
+        &__text-box{
+          width: 100%;
+          margin: 8px 0 0;
+
+          &__field{
+            width: 100%;
+            height: 48px;
+            padding: 10px 16px 8px;
+            margin-bottom: 40px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+            font-size: 16px;
+          }
+
+          &__area{
+            width: 100%;
+            height: 140px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            font-size: 16px;
+          }
+
+        }
+
+        &__small-label{
+          float: left;
+          color: #888;
+          font-size: 14px;
+        }
+
+        &__price-list{
+          float: right;
+          width: 400px;
+          &__price{
+            padding: 0 0 24px;
+            &__left{
+              float: left;
+            }
+            &__right{
+              float: right;
+              display: flex;
+              justify-content: flex-end;
+              align-items: center;
+            }
+          }
+          &__fee{
+            padding: 24px 0;
+            border-top: 1px solid;
+            border-color: #ccc;
+            &__left{
+              float: left;
+            }
+            &__right{
+              float: right;
+            }
+          }
+          &__profit{
+            padding: 24px 0;
+            border-top: 1px solid;
+            border-color: #ccc;
+            &__left{
+              float: left;
+              font-size: 16px;
+              font-weight: 600;
+            }
+            &__right{
+              float: right;
+              font-size: 34px;
+              font-weight: 600;
+            }
+          }
+        }
+
+        &__actions{
+          margin-top: 40px;
+          width: 100%;
+          input{
+            width: 100%;
+            height: 50px;
+            background-color: #ea352d;
+            color: #fff;
+            font-size: 14px;
+            cursor: pointer;
+          }
+        }
+
+        &__return{
+          width: 45%;
+          height: 50px;
+          margin: 24px auto 0;
+          background-color: #aaa;
+          color: #fff;
+          font-size: 14px;
+          text-align: center;
+          line-height: 50px;
+          text-decoration: none;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}
+
+
+
+.footer{
+  background-color: #f5f5f5;
+  height: 220px;
+  width: 100%;
+  text-align: center;
+  color: #333;
+  padding: 40px 0;
+
+  &__policy{
+    font-size: 12px;
+    text-decoration: none;
+  }
+
+  &__terms{
+    font-size: 12px;
+    margin:0 16px;
+  }
+
+  &__law{
+    font-size: 12px;
+  }
+
+  &__logo{
+    margin: 40px auto 0;
+  }
+
+  &__trademark{
+    font-size: 13px;
+  }
+}
