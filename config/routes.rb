@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
-  root 'items#index'
+  root 'products#index'
 
   #商品ページ
-  get 'sell', to: 'items#new'
+  get 'sell', to: 'products#new'
+  post 'sell', to: 'products#create'
+  resources :products
 end
