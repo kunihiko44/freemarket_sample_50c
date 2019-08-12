@@ -72,3 +72,4 @@ end
 
 gem 'haml-rails'
 gem 'active_hash'
+gem 'dropzonejs-rails'

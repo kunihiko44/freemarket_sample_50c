@@ -1,3 +1,6 @@
 @import './reset';
 
 @import 'modules/product';
+
+*= require dropzone/basic
+*= require dropzone/dropzone
