@@ -5,100 +5,135 @@
 .body
   .product-exhibition
     .product-exhibition__head 商品情報を入力
+
     
     -# 出品画像
     .product-exhibition__form__group
       %span.product-exhibition__form__group__large-label 出品画像
       %span.product-exhibition__form__group__necessary 必須
       %p.product-exhibition__form__group__notice 最大10枚までアップロードできます
-      %p ※入力フォーム
-      %p ドラッグアンドドロップ
-      %p またはクリックしてファイルをアップロード
+      .product-exhibition__form__group__image
+        = form_with(model: @product, local: true) do |f|
+          = f.fields_for @image do |fi|
+            %ul.image-preview
+            .nest-form
+              .nest-form__head
+                %p ドラッグアンドドロップ
+                %p またはクリックしてファイルをアップロード
+              = fi.file_field :name, name: 'images[name][1]', id: 'image1', style: 'display: none;'
 
     -# 商品名、商品の説明
     .product-exhibition__form__group
-      %span.product-exhibition__form__group__label 商品名
-      %span.product-exhibition__form__group__necessary 必須
-      .product-exhibition__form__group__text-box
-        = form_with(model: @product, local: true) do |f|
-          = f.text_field :name, autofocus: true, class: "product-exhibition__form__group__text-box__field", placeholder: "商品名（必須40文字まで）"
+      .product-exhibition__form__group__intro
+        %span.product-exhibition__form__group__label 商品名
+        %span.product-exhibition__form__group__necessary 必須
+        .product-exhibition__form__group__text-box
+          = form_with(model: @product, local: true) do |f|
+            = f.text_field :name, autofocus: true, class: "product-exhibition__form__group__text-box__field__name", placeholder: "商品名（必須40文字まで）"
 
-      %span.product-exhibition__form__group__label 商品の説明
-      %span.product-exhibition__form__group__necessary 必須
-      .product-exhibition__form__group__text-box
-        = form_with(model: @product, local: true) do |f|
-          = f.text_area :description, autofocus: true, class: "product-exhibition__form__group__text-box__area", placeholder: "商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。"
-
+        %span.product-exhibition__form__group__label 商品の説明
+        %span.product-exhibition__form__group__necessary 必須
+        .product-exhibition__form__group__text-box
+          = form_with(model: @product, local: true) do |f|
+            = f.text_area :description, autofocus: true, class: "product-exhibition__form__group__text-box__area", placeholder: "商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。"
+    
 
     -# 商品の詳細
     .product-exhibition__form__group
-      %span.product-exhibition__form__group__small-label 商品の詳細
-      %span.product-exhibition__form__group__label カテゴリー
-      %span.product-exhibition__form__group__necessary 必須
-      %p ※選択フォーム
-      %span.product-exhibition__form__group__label 商品の状態
-      %span.product-exhibition__form__group__necessary 必須
-      %p ※選択フォーム
+      .product-exhibition__form__group__detail
+        %span.product-exhibition__form__group__small-label 商品の詳細
+        .product-exhibition__form__group__detail-list
+          .product-exhibition__form__group__select-box__category
+            %span.product-exhibition__form__group__label カテゴリー
+            %span.product-exhibition__form__group__necessary 必須
+            .product-exhibition__form__group__select-box
+              = form_with(model: @product, local: true) do |f|
+                = f.select :category, ["レディース", "メンズ", "ベビー・キッズ", "インテリア・住まい・小物", "本・音楽・ゲーム", "おもちゃ・ホビー・グッズ","コスメ・香水・美容","家電・スマホ・カメラ","スポーツ・レジャー","ハンドメイド","チケット","自動車・オートバイ","その他"], {include_blank: "---"}, class: "product-exhibition__form__group__select-box__body" 
+                %i.fas.fa-chevron-down
+          .product-exhibition__form__group__select-box__state
+            %span.product-exhibition__form__group__label 商品の状態
+            %span.product-exhibition__form__group__necessary 必須
+            .product-exhibition__form__group__select-box
+              = form_with(model: @product, local: true) do |f|
+                = f.select :state, ["新品、未使用", "未使用に近い", "目立った傷や汚れなし", "やや傷や汚れあり", "傷や汚れあり", "全体的に状態が悪い"], {include_blank: "---"}, class: "product-exhibition__form__group__select-box__body" 
+                %i.fas.fa-chevron-down
 
 
     -# 配送に付いて
     .product-exhibition__form__group
-      %span.product-exhibition__form__group__small-label 配送について
-      = link_to "?", class: "product-exhibition__form__group__small-label__help"
-      %span.product-exhibition__form__group__label 配送料の負担
-      %span.product-exhibition__form__group__necessary 必須
-      %p ※選択フォーム
-      %span.product-exhibition__form__group__label 発送元の地域
-      %span.product-exhibition__form__group__necessary 必須
-      .product-exhibition__form__group__select
+      .product-exhibition__form__group__delivery
+        %span.product-exhibition__form__group__small-label 配送について
+        %span.product-exhibition__form__group__help
+          = link_to "?", '#'
 
-      %span.product-exhibition__form__group__label 発送までの日数
-      %span.product-exhibition__form__group__necessary 必須
-      %p ※選択フォーム
+        .product-exhibition__form__group__delivery__list
+          %span.product-exhibition__form__group__label 配送料の負担
+          %span.product-exhibition__form__group__necessary 必須
+          .product-exhibition__form__group__select-box__delivery_cost
+            = form_with(model: @product, local: true) do |f|
+              = f.select :delivery_cost, ["送料込み(出品者負担)", "着払い(購入者負担)"], {include_blank: "---"}, class: "product-exhibition__form__group__select-box__body" 
+          
+          %span.product-exhibition__form__group__label 発送元の地域
+          %span.product-exhibition__form__group__necessary 必須
+          .product-exhibition__form__group__select-box__delivery_prefecture
+            = form_with(model: @product, local: true) do |f|
+              = f.select :delivery_prefecture, ["", ""], {include_blank: "---"}, class: "product-exhibition__form__group__select-box__body" 
+
+ 
+          %span.product-exhibition__form__group__label 発送までの日数
+          %span.product-exhibition__form__group__necessary 必須
+          .product-exhibition__form__group__select-box__delivery_date
+            = form_with(model: @product, local: true) do |f|
+              = f.select :delivery_date, ["1〜2日で発送", "2〜3日で発送", "4〜7日で発送"], {include_blank: "---"}, class: "product-exhibition__form__group__select-box__body" 
 
 
     -# 販売価格
     .product-exhibition__form__group
-      %span.product-exhibition__form__group__small-label 販売価格(300〜9,999,999)
-      = link_to "?", class: "product-exhibition__form__group__small-label__help"
-      .product-exhibition__form__group__price-list
-        .product-exhibition__form__group__price-list__price
-          .product-exhibition__form__group__price-list__price__left
-            %span.product-exhibition__form__group__label 価格
-            %span.product-exhibition__form__group__necessary 必須
-          .product-exhibition__form__group__price-list__price__right
-            %span ¥
-            .product-exhibition__form__group__text-box
-              = form_with(model: @product, local: true) do |f|
-                = f.text_field :price, autofocus: true, class: "product-exhibition__form__group__text-box__field__price",placeholder: "例）300"
-        .product-exhibition__form__group__price-list__fee
-          .product-exhibition__form__group__price-list__fee__left
-            %p 販売手数料(10%)
-          .product-exhibition__form__group__price-list__fee__right
-            %p -
-        .product-exhibition__form__group__price-list__profit
-          .product-exhibition__form__group__price-list__profit__left
-            %p 販売利益
-          .product-exhibition__form__group__price-list__profit__right
-            %p -
+      .product-exhibition__form__group__sell-price
+        %span.product-exhibition__form__group__small-label 販売価格(300〜9,999,999)
+        %span.product-exhibition__form__group__help
+          = link_to "?", '#'
+        
+        .product-exhibition__form__group__sell-price__list
+          .product-exhibition__form__group__sell-price__list__price
+            .product-exhibition__form__group__sell-price__list__price__left
+              %span.product-exhibition__form__group__label 価格
+              %span.product-exhibition__form__group__necessary 必須
+            .product-exhibition__form__group__sell-price__list__price__right
+              %span ¥
+              .product-exhibition__form__group__text-box
+                = form_with(model: @product, local: true) do |f|
+                  = f.text_field :price, autofocus: true, class: "product-exhibition__form__group__text-box__field__price",placeholder: "例）300"
+          
+          .product-exhibition__form__group__sell-price__list__fee
+            .product-exhibition__form__group__sell-price__list__fee__left
+              %p 販売手数料(10%)
+            .product-exhibition__form__group__sell-price__list__fee__right
+              %p -
+          
+          .product-exhibition__form__group__sell-price__list__profit
+            .product-exhibition__form__group__sell-price__list__profit__left
+              %p 販売利益
+            .product-exhibition__form__group__sell-price__list__profit__right
+              %p -
 
 
     -# 確認事項、出品ボタン、もどるボタン
     .product-exhibition__form__group
       %p
-        = link_to "禁止されている出品"
+        = link_to "禁止されている出品", '#'
         %span 、
-        = link_to "行為"
+        = link_to "行為", '#'
         %span を必ずご確認ください。
       %p 
         %span またブランド品でシリアルナンバー等がある場合はご記載ください。
         %span 
-        =link_to "偽ブランドの販売"
+        =link_to "偽ブランドの販売", '#'
         %span は犯罪であり処罰される可能性があります。
       %p 
         %span また、出品をもちまして
         %span 
-        =link_to "加盟店規約"
+        =link_to "加盟店規約", '#'
         %span に同意したことになります。
       .product-exhibition__form__group__actions
         = form_with(model: @product, local: true) do |f|
@@ -109,11 +144,11 @@
 
 .footer 
   %span.footer__policy 
-    = link_to "プライバシーポリシー"
+    = link_to "プライバシーポリシー", '#'
   %span.footer__terms 
-    = link_to "メルカリ利用規約"
+    = link_to "メルカリ利用規約", '#'
   %span.footer__law
-    = link_to "特定商取引に関する表記"
+    = link_to "特定商取引に関する表記", '#'
   .footer__logo
     = image_tag 'common/logo-gray.svg', alt: 'mercari', height: '65', width: '80'
   .footer__trademark ©️ 2019 Mercari
