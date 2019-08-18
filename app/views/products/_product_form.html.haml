@@ -13,14 +13,13 @@
       %span.product-exhibition__form__group__necessary 必須
       %p.product-exhibition__form__group__notice 最大10枚までアップロードできます
       .product-exhibition__form__group__image
-        = form_with(model: @product, local: true) do |f|
-          = f.fields_for @image do |fi|
-            %ul.image-preview
-            .nest-form
-              .nest-form__head
-                %p ドラッグアンドドロップ
-                %p またはクリックしてファイルをアップロード
-              = fi.file_field :name, name: 'images[name][1]', id: 'image1', style: 'display: none;'
+        .product-exhibition__form__group__image__upload-area
+          %p.product-exhibition__form__group__image__upload-area__top
+            ドラッグアンドドロップ
+            %br
+            またはクリックしてファイルをアップロード
+          = form_with(model: @product, local: true) do |f|
+            = f.file_field "images[]", type: :file, multiple: true, class: "product-exhibition__form__group__image__upload-area__hidden"
 
     -# 商品名、商品の説明
     .product-exhibition__form__group
@@ -77,9 +76,8 @@
           %span.product-exhibition__form__group__necessary 必須
           .product-exhibition__form__group__select-box__delivery_prefecture
             = form_with(model: @product, local: true) do |f|
-              = f.select :delivery_prefecture, ["", ""], {include_blank: "---"}, class: "product-exhibition__form__group__select-box__body" 
+              = f.collection_select :prefecture_id, Prefecture.all, :id, :name, {include_blank: "---"}, class: "product-exhibition__form__group__select-box__body" 
 
- 
           %span.product-exhibition__form__group__label 発送までの日数
           %span.product-exhibition__form__group__necessary 必須
           .product-exhibition__form__group__select-box__delivery_date
