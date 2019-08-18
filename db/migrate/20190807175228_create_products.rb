@@ -13,7 +13,7 @@ class CreateProducts < ActiveRecord::Migration[5.2]
       t.integer    :delivery_date,           null: false
       t.integer    :delivery_cost,           null: false
       t.integer    :delivery_method,         null: false
-      t.integer    :prefecture_id,           null: false
+      t.string     :prefecture_id,           null: false
       t.timestamps
     end
   end
