@@ -1,0 +1,189 @@
+.header {
+  &__container {
+    box-sizing: border-box;
+    height: 90px;
+    width: 900px;
+    margin: 0 auto;
+    padding-top: 8px;
+    position: relative;
+    &__search {
+      height: 36px;
+      display: flex;
+      box-sizing: inherit;
+      &__logo{
+        height: 100%;
+      }
+      &__form {
+        width: 100%;
+        padding-left: 16px;
+      }
+      &__input{
+        height: 100%;
+        width: 100%;
+        padding: 9px 32px 9px 8px;
+        border-radius: 4px;
+        border: 1px solid #ccc;
+        line-height: 1.5;
+        font-size: 16px;
+        background: #f5f5f5;
+      .fa{
+        margin-bottom: 20px;
+        float:right;
+      }
+      }
+    }
+    &__navigation {
+      height: 38px;
+      width: 100%;
+      bottom: 0;
+      margin-top: 8px;
+      .navigation-left {
+        float: left;
+        display: flex;
+        justify-content: left;
+        line-height: 30px;
+        .icon{
+          display: inline-block;
+          font-family: 'icon-font';
+          font-style: normal;
+          font-weight: 400;
+          font-variant: normal;
+          text-transform: none;
+          line-height: 1;
+        }
+        a{
+          margin-right:10px;
+          color:#333333;
+          font-size:14px;
+          font-weight: bold;
+        }
+      }
+      .navigation-right {
+        float: right;
+        display: flex;
+        justify-content: right;
+        &__registration{
+          background: #ea352d;
+          border: 1px solid #ea352d;
+          text-decoration: none;
+          border-radius: 4px;
+          text-align: center;
+          padding: 0 10px;
+          line-height: 30px;
+          a{
+            color: #fff;
+            font-size:14px;
+          }
+        }
+        &__login{
+          display: inline-block;
+          margin: 0 0 0 8px;
+          display: block;
+          border: 1px solid #0099e8;
+          background: #fff;
+          padding: 0 10px;
+          line-height: 30px;
+          a{
+            color: #0099e8;
+            font-size:14px;
+          }
+        }
+      }
+    }
+  } 
+}
+#dropmenu {
+  list-style-type: none;
+  width: 150px;
+  padding: 0;
+  li {
+    position: relative;
+    width: 100%;
+    float: left;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    .fa{
+      float:left;
+      line-height: 2;
+    }
+    a {
+      display: block;
+      margin: 0;
+      font-size: 14px;
+      font-weight: bold;
+      line-height: 2.5;
+      text-decoration: none;
+      padding-right:10px;
+    }
+    ul {
+      list-style: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      margin: 0;
+      padding: 0;
+      border-radius: 0 0 3px 3px;
+    }
+    &:last-child ul {
+      left: -100%;
+      width: 100%;
+    }
+    ul li {
+      overflow: hidden;
+      width: 200%;
+      height: 0;
+      -moz-transition: .2s;
+      -webkit-transition: .2s;
+      -o-transition: .2s;
+      -ms-transition: .2s;
+      transition: .2s;
+      a {
+        padding: 13px 15px;
+        background: #fff;
+        text-align: left;
+        font-size: 12px;
+        font-weight: normal;
+      }
+    }
+    &:hover {
+      > a {
+        background: white;
+        color: #0099e8;
+      }
+      ul li {
+        overflow: visible;
+        height: 38px;
+        border-top: 1px solid #fff;
+        border-bottom: 1px solid #fff;
+        &:first-child {
+          border-top: 0;
+          a {
+            border-radius: 0 0 3px 3px;
+            background: #ea352d;
+            color:#fff;
+          }
+        }
+        &:nth-child(2) {
+          border-top: 0;
+          a {
+            border-radius: 0 0 3px 3px;
+            background: #ea352d;
+            color:#fff;
+          }
+        }
+        &:last-child {
+          border-bottom: 0;
+          a {
+            border-radius: 0 0 3px 3px;
+            background: #ea352d;
+            color:#fff;
+          }
+        }
+      }
+    }
+  }
+  > li:hover > a {
+    border-radius: 3px 3px 0 0;
+  }
+}
