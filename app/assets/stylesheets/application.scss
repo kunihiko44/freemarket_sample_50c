@@ -4,3 +4,7 @@
 @import "./_container";
 @import "font-awesome";
 @import "font-awesome-sprockets";
+
+//マイページ
+@import './modules/mypage/*';
+@import './modules/mypage/mypage-sidemenu';
