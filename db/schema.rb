@@ -46,13 +46,6 @@ ActiveRecord::Schema.define(version: 2019_08_18_073406) do
     t.index ["name"], name: "index_brands_on_name"
   end
 
-  create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "name", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["name"], name: "index_categories_on_name"
-  end
-
   create_table "images", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "image", null: false
     t.bigint "product", null: false
@@ -63,17 +56,15 @@ ActiveRecord::Schema.define(version: 2019_08_18_073406) do
   create_table "products", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
     t.text "introduction", null: false
-    t.integer "price", null: false
-    t.string "size", null: false
-    t.integer "state", null: false
-    t.bigint "user", null: false
-    t.bigint "brand"
-    t.bigint "category"
-    t.string "deal_state"
-    t.integer "delivery_date", null: false
-    t.integer "delivery_cost", null: false
-    t.integer "delivery_method", null: false
+    t.string "category_id", null: false
+    t.string "size"
+    t.string "state_id", null: false
+    t.string "delivery_cost_id", null: false
+    t.string "delivery_method_id", null: false
     t.string "prefecture_id", null: false
+    t.integer "price", null: false
+    t.bigint "brand"
+    t.string "delivery_date_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["name"], name: "index_products_on_name"
