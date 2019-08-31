@@ -7,10 +7,14 @@ class Product < ApplicationRecord
   belongs_to_active_hash :delivery_method
   belongs_to_active_hash :delivery_date
 
-
   has_many_attached :images
 
-  validates :name,:introduction,:price,:category,:state,:delivery_cost,:prefecture,:delivery_method,:delivery_date, presence: true
 
+  mount_uploader :image, ImageUploader
+
+  validates :name,:introduction,:price,:category,:state,:delivery_cost,:prefecture,:delivery_method,:delivery_date, presence: true
+  validates :name,length:{ maximum: 40 }
+  validates :introduction,length:{ maximum: 1000 }
+  validates :price, numericality:{ greater_than: 299, less_than: 10000000}
 
 end
