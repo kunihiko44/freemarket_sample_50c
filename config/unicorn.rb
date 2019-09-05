@@ -4,7 +4,7 @@ worker_processes 1
 
 working_directory app_path
 
-listen 3000
+listen "#{app_path}/tmp/sockets/unicorn.sock"
 
 pid "#{app_path}/tmp/pids/unicorn.pid"
 stderr_path "#{app_path}/log/unicorn.stderr.log"
