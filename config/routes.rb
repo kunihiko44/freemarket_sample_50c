@@ -8,8 +8,6 @@ Rails.application.routes.draw do
   resources :products, only: [:new,:create] do
   end
 
-
   root 'mypage#index'
-  root 'items#index'
 
 end

@@ -4,36 +4,36 @@
     %h1.item-name  カフス
     .item-main-content
       .item-photo
-        %img.photo-details{:alt => "カフス", "data-src" => "https://static.mercdn.net/item/detail/orig/photos/m41654516108_1.jpg?1548939196", :src => "https://static.mercdn.net/item/detail/orig/photos/m41654516108_1.jpg?1548939196", :style => "opacity: 1;"}/
+        = image_tag "https://static.mercdn.net/item/detail/orig/photos/m41654516108_1.jpg?1548939196", class: "photo-details"
       %table.item-detail-table
         %tbody
           %tr
             %th 出品者
             %td
-              %a{:href => "https://www.mercari.com/jp/u/803926966/"} siedlung
+              = link_to "siedlung"
               %div
-                .item-user-ratings
-                  %i.icon-good
-                  %span 42
-                .item-user-ratings
-                  %i.icon-normal
-                  %span 0
-                .item-user-ratings
-                  %i.icon-bad
-                  %span 0
+              .item-user-ratings
+                %i.icon-good
+                %span 42
+              .item-user-ratings
+                %i.icon-normal
+                %span 0
+              .item-user-ratings
+                %i.icon-bad
+                %span 0
           %tr
             %th カテゴリー
             %td
-              %a{:href => "https://www.mercari.com/jp/category/2/"}
-                %div メンズ
-              %a{:href => "https://www.mercari.com/jp/category/38/"}
-                .item-detail-table-sub-category
-                  %i.icon-arrow-right
-                  小物
-              %a{:href => "https://www.mercari.com/jp/category/406/"}
-                .item-detail-table-sub-sub-category
-                  %i.icon-arrow-right
-                  ネクタイピン
+              = link_to "siedlung"
+              %div メンズ
+              = link_to "#"
+              .item-detail-table-sub-category
+                %i.icon-arrow-right
+                小物
+              = link_to "#"
+              .item-detail-table-sub-sub-category
+                %i.icon-arrow-right
+                ネクタイピン
           %tr
             %th ブランド
             %td
@@ -49,7 +49,7 @@
           %tr
             %th 配送元地域
             %td
-              %a{:href => "https://www.mercari.com/jp/area/13/"} 東京都
+              = link_to "東京都"
           %tr
             %th 発送日の目安
             %td 1~2日で発送
@@ -75,14 +75,14 @@
             %i.icon-flag
             %span 不適切な商品の報告
         .item-button-right
-          %a{:href => "https://www.mercari.com/jp/safe/description/", :target => "_blank"}
-            %i.icon-lock
-            %span あんしん・あんぜんへの取り組み
+          = link_to "#"
+          %i.icon-lock
+          %span あんしん・あんぜんへの取り組み
 
   .item-detail-message
     .message-container
       .message-content
-        %form.message-form{:action => "https://www.mercari.com/jp/comment/add/", :method => "POST"}
+        .message-form{:action => "#", :method => "POST"}
           %input{:name => "__csrf_value", :type => "hidden", :value => "5196f53bfbe7cb3e409847e58e879453c48856ee2c38486441538422dddab7962462465c8abd257d607c06c161796f318da43088ff2cbfb8763e6c6b5311ba24b"}/
           %p 相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
           %input{:name => "item_id", :type => "hidden", :value => "m41654516108"}/
