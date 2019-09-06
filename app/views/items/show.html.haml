@@ -1,7 +1,8 @@
 .container
   = render "layouts/header"
   %section.item-box-container
-    %h1.item-name  カフス
+    %h1.item-name  
+    = @product.name
     .item-main-content
       .item-photo
         = image_tag "https://static.mercdn.net/item/detail/orig/photos/m41654516108_1.jpg?1548939196", class: "photo-details"
@@ -10,7 +11,7 @@
           %tr
             %th 出品者
             %td
-              = link_to "siedlung"
+              = link_to @product.users.nickname
               %div
               .item-user-ratings
                 %i.icon-good
@@ -37,33 +38,33 @@
           %tr
             %th ブランド
             %td
+              = link_to @product.brand
           %tr
             %th 商品の状態
             %td 新品、未使用
           %tr
             %th 配送料の負担
-            %td 送料込み(出品者負担)
+            %td 
+              = link_to @product.delivery.cost
           %tr
             %th 配送の方法
-            %td ゆうゆうメルカリ便
+              = link_to @product.delivery.method
           %tr
             %th 配送元地域
             %td
-              = link_to "東京都"
           %tr
             %th 発送日の目安
-            %td 1~2日で発送
+            %td 
+              = link_to @product.delivery.date
       .item-price-box
-        %span.item-price  ¥9,999
+        %span.item-price  
+          = @product.price
         %span.item-tax (税込)
         %span.item-shipping-fee 送料込み  
 
       .item-description
         %p.item-description-inner
-          25周年のカフスです。
-        %p  
-        %p
-          未使用品ですが、素人保管の点外箱に多少のキズ等がございます。ご了承ください。
+          = @product.introduction
       
       .item-button-container.clearfix
         .item-button-left
