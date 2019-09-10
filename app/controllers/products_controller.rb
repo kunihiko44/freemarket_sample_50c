@@ -8,13 +8,14 @@ class ProductsController < ApplicationController
   end
   
   def create
-    @product = Product.create(product_params)
-    if @product.save
+    @product = Product.new(product_params)
+    @image = Image.new
+    if @product.save & save_images(@product,image_params)
       flash[:notice] = "出品が完了しました"
       redirect_to controller: :products, action: :index
     else
-      flash[:notice] = "未入力の欄があります"
-      render "new"
+      flash[:notice] = "画像がない、もしくは未入力の欄があります"
+      render action: :new
     end
   end
 
@@ -36,5 +37,19 @@ class ProductsController < ApplicationController
     )
   end
 
+  def image_params
+    params.require(:images).require(:name).permit(params[:images][:name].keys) if params[:images].present?
+  end
+
+  def save_images(product, images)
+    if images.present?
+      return false if product.id.blank?
+      images.values.each do |name|
+        @image = product.images.create(name: name)
+      end
+    else
+      return false
+    end
+  end
 
 end
