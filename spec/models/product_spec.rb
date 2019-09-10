@@ -84,9 +84,29 @@ describe Product do
       expect(product).to be_valid
     end
 
+    it "priceが299以下では登録できない" do
+      product = build(:product, price: "299" )
+      product.valid?
+      expect(product.errors[:price]).to include("must be greater than or equal to 300")
+    end
+    
+    it "priceが300以上であれば登録できる" do
+      product = build(:product, price: "300" )    
+      expect(product).to be_valid
+    end
+
+    it "priceが9999999以下であれば登録できる" do
+      product = build(:product, price: "9999999" )    
+      expect(product).to be_valid
+    end
+    
+    it "priceが10000000以上では登録できない" do
+      product = build(:product, price: "10000000" )
+      product.valid?    
+      expect(product.errors[:price]).to include("must be less than or equal to 9999999")
+    end
 
 
-
-
+    
   end
 end
