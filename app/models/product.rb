@@ -7,8 +7,7 @@ class Product < ApplicationRecord
   belongs_to_active_hash :delivery_method
   belongs_to_active_hash :delivery_date
 
-  has_many_attached :images
-
+  has_many :images
 
   mount_uploader :image, ImageUploader
 
