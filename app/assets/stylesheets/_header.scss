@@ -1,3 +1,49 @@
+@charset "utf-8";
+
+.slideshow {
+	position: relative;
+	overflow: hidden;
+}
+
+/* :::::: slideContents :::::: */
+.slideContents {
+	position: relative;
+	background: url(https://www.mercari.com/jp/assets/img/featured/camp/index/index_keyvisual_pattern.jpg?72295318) center center/100px repeat;
+	text-align: center;
+	-webkit-user-select: none;
+	user-select: none;
+}
+.slideContents section {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+}
+.slideContents section img {
+	max-width: 100%;
+	padding: 0 250px;
+	box-sizing: border-box;
+	vertical-align: middle;
+}
+
+/* :::::: mechanism :::::: */
+.slideContents #slide1 {
+	position: relative;
+}
+.slideContents section {
+	animation: autoplay 12s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
+}
+@keyframes autoplay {
+	0% { transform: translateX(0); }
+	40% { transform: translateX(0); }
+	44% { transform: translateX(-100%); }
+	44.001% { transform: translateX(100%); }
+	96% { transform: translateX(100%); }
+	100% { transform: translateX(0); }
+}
+.slideContents #slide1 { animation-delay: 0s; }
+.slideContents #slide2 { animation-delay: -6s; }
+
 .header {
   &__container {
     box-sizing: border-box;
