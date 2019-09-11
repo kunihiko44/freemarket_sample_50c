@@ -19,6 +19,11 @@ class ProductsController < ApplicationController
     end
   end
 
+  def show
+    @product = Product.find(params[:id])
+    @product = Product.order(created_at: :desc).limit(6)
+  end
+
   private
 
   def product_params

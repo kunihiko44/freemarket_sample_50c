@@ -6,6 +6,8 @@ class Product < ApplicationRecord
   belongs_to_active_hash :delivery_cost
   belongs_to_active_hash :delivery_method
   belongs_to_active_hash :delivery_date
+  belongs_to :category
+  belongs_to :user
 
   has_many :images
 
