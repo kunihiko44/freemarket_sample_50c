@@ -7,7 +7,6 @@ class Product < ApplicationRecord
   belongs_to_active_hash :delivery_method
   belongs_to_active_hash :delivery_date
   belongs_to :category
-  
 
   has_many :images
 
