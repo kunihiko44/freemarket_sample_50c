@@ -14,4 +14,6 @@ FactoryBot.define do
     delivery_date_id           {"1"}
   end
 
+
 end
+

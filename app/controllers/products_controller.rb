@@ -8,7 +8,7 @@ class ProductsController < ApplicationController
   end
   
   def create
-    @product = Product.create(product_params)
+    @product = Product.new(product_params)
     @image = Image.new
     if @product.save & save_images(@product,image_params)
       flash[:notice] = "出品が完了しました"
