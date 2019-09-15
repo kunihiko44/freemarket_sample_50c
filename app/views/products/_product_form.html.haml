@@ -14,12 +14,14 @@
           %span.product-exhibition__form__group__item__necessary 必須
         %p.product-exhibition__form__group__notice 最大10枚までアップロードできます
         .product-exhibition__form__group__image
-          .product-exhibition__form__group__image__upload-area
-            %p.product-exhibition__form__group__image__upload-area__top
-              ドラッグアンドドロップ
-              %br
-              またはクリックしてファイルをアップロード
-            = f.file_field "images[]", type: :file, multiple: true, class: "product-exhibition__form__group__image__upload-area__hidden"
+          =f.fields_for @image do |fi|
+            .product-exhibition__form__group__image__upload-area
+              .image-preview
+                %p.product-exhibition__form__group__image__upload-area__top
+                  ドラッグアンドドロップ
+                  %br
+                  またはクリックしてファイルをアップロード
+              = fi.file_field :name, name: 'images[name][1]',id: 'image1', class: "product-exhibition__form__group__image__upload-area__hidden"
 
       -# 商品名、商品の説明
       .product-exhibition__form__group

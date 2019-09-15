@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   resources :products, only: [:new,:create] do
   end
 
+  #マイページ
   root 'mypage#index'
 
 end
