@@ -12,7 +12,7 @@ class ProductsController < ApplicationController
     @image = Image.new
     if @product.save & save_images(@product,image_params)
       flash[:notice] = "出品が完了しました"
-      redirect_to controller: :products, action: :index
+      redirect_to controller: :products, action: :new
     else
       flash[:notice] = "画像がない、もしくは未入力の欄があります"
       render action: :new
