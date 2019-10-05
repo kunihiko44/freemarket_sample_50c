@@ -1,1 +1,46 @@
-hello world
+= render partial: "layouts/header" 
+
+.container
+  .slideshow
+    %div.slick
+      %div
+        = image_tag "https://www-mercari-jp.akamaized.net/assets/img/featured/camp/index/index_keyvisual.png?2482339763"
+      %div
+        = image_tag "https://mercarinews.files.wordpress.com/2019/08/sns-1.jpg"
+
+  .container__main
+    %h2 ピックアップカテゴリー
+    .pickup-box  
+      = link_to "レディース新着アイテム"
+    =render partial: 'products/box-contents', locals:{products:@products.where(category_id: "1")}
+
+    .pickup-box  
+      = link_to "メンズ新着アイテム"
+    =render partial: 'products/box-contents', locals:{products:@products.where(category_id: "2")}
+
+    .pickup-box  
+      = link_to "ベビー・キッズ 新着アイテム"
+    =render partial: 'products/box-contents', locals:{products:@products.where(category_id: "3")}
+
+  .aside
+    .aside__banner
+
+
+.sell-button
+  %h3.sell-button__text 出品
+  .i.fa.fa-camera.fa-4x
+
+.banner
+  .banner__pc
+    .banner__pc__inner
+      %h2スマホでかんたんフリマアプリ
+      %p今すぐ無料ダウンロード!
+    .banner__pc__app
+      = image_tag "//www-mercari-jp.akamaized.net/assets/img/common/common/mercari_icon.png?2927923569", class: "mercari"
+      = image_tag "https://www-mercari-jp.akamaized.net/assets/img/common/common/app-store.svg?2927923569", class: "app"
+      = image_tag "https://www-mercari-jp.akamaized.net/assets/img/common/common/google-play.svg?2927923569", class: "google"
+    .banner__pc__img
+      = image_tag "https://www-mercari-jp.akamaized.net/assets/img/common/jp/download_content_pc.png?891577966", class: "img"
+
+
+= render partial: "layouts/footer"
