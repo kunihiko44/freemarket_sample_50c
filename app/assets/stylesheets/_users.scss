@@ -34,6 +34,74 @@
   }
 }
 
+@mixin input-default(){
+  width: 100%;
+  height: 48px;
+  font-family: "Source Sans Pro","YuGothic";
+  color: #333;
+  border-radius: 4px;
+  border: 1px solid #f5f5f5;
+  padding: 10px 16px 8px;
+  &:focus{
+    outline: none;
+    border: 1px solid #0099e8;
+  }
+}
+
+@mixin btn-facebook {
+  background: #385185;
+  color: #fff;
+  width: 100%;
+  &__left {
+    position: absolute;
+    left: 17px;
+    .icon-facebook-square:before {
+      font-family: "Font Awesome 5 Brands";
+      content: '\f082';
+      font-size: 30px;
+    }
+  }
+  &__right {
+    flex-grow: 1;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    a {
+      display: block;
+      color: #fff;
+    }
+  }
+}
+
+@mixin btn-google {
+  border: 1px solid #979797;
+  margin-top: 16px;
+  line-height: 48px;
+  width: 100%;
+  &__left {
+    position: absolute;
+    top: 28%;
+    left: 16px;
+    img {
+      display: block;
+    }
+  }
+  &__right {
+    flex-grow: 1;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    a {
+      display: block;
+      color: #000;
+    }
+  }
+}
+
 .sub-container {
   .sign-up {
     .panel {
@@ -52,6 +120,73 @@
           @include link-btn;
           @include btn-mail;
           width: 320px;
+        }
+      }
+    }
+  }
+}
+
+.sub-container {
+  .sign-in {
+    .panel {
+      background: #fff;
+      max-width: 456px;
+      margin: 0 auto;
+      &__head {
+        padding: 40px 64px;
+        border-bottom: 1px solid #eee;
+        &__registration-link-btn {
+          background: #0099e8;
+          margin-top: 8px;
+          line-height: 42px;
+          a {
+            display: block;
+            color: #fff;
+          }
+        }
+      }
+      &__inner {
+        .sns-login {
+          padding: 32px 64px;
+          &__facebook {
+            @include link-btn;
+            @include btn-facebook;
+          }
+          &__google {
+            @include link-btn;
+            @include btn-google;
+          }
+        }
+        .login-form {
+          padding: 24px 64px 32px;
+          &__email {
+            @include input-default;
+          }
+          &__password {
+            @include input-default;
+           margin-top: 24px;
+          }
+          &__submit {
+            margin-top: 24px;
+            display: block;
+            width: 100%;
+            line-height: 48px;
+            font-size: 14px;
+            background: #ea352d;
+            border: 1px solid #ea352d;
+            color: #fff;
+            cursor: pointer;
+          }
+          &__forget-password {
+            display: block;
+            margin-top: 40px;
+            text-align: left;
+            color: #0099e8e;
+            &:hover {
+              text-decoration: underline #0099e8;
+              opacity: 0.7;
+            }
+          }
         }
       }
     }
