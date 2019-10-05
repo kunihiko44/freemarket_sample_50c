@@ -1,9 +1,9 @@
-.single-wrapper
-  %header.single-header-flex
-    .single-header-flex__left
+.sub-wrapper
+  %header.sub-header-flex
+    .sub-header-flex__left
       =link_to root_path do
         = image_tag 'common/logo.svg', height:'49px'
-    %nav.single-header-flex__right
+    %nav.sub-header-flex__right
       %ol.progress-bar
         %li.progress-bar__progress--active
           %p.progress-bar__progress__text 会員情報
@@ -20,7 +20,7 @@
         %li.progress-bar__progress
           %p.progress-bar__progress__text 完了
           .progress-bar__progress__status
-  .single-container
+  .sub-container
     .registration
       .panel
         .panel__head 会員情報入力
