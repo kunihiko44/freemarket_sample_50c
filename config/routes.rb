@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
 
-  devise_for :users
+  devise_for :users, controllers: {
+    registrations: 'users/registrations'
+  }
+
   root 'items#index'
 
   #商品ページ
@@ -12,5 +15,6 @@ Rails.application.routes.draw do
   #マイページ
   root 'mypage#index'
 
+  resources :users, only: [:show, :new]
 
 end
