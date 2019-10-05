@@ -2,7 +2,7 @@
   %header.single-header-flex
     .single-header-flex__left
       =link_to root_path do
-        = image_tag 'logo.svg', height:'49px'
+        = image_tag 'common/logo.svg', height:'49px'
     %nav.single-header-flex__right
       %ol.progress-bar
         %li.progress-bar__progress--active
@@ -111,4 +111,4 @@
                 .form-group
                   .form-group__info-link
                     =link_to "本人情報の登録について", src:"#", class:"icon-chevron-right"
-  = render partial: "/shared/single-footer" 
+  = render partial: "/layouts/sub-footer" 
