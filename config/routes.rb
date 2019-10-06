@@ -1,10 +1,9 @@
 Rails.application.routes.draw do
 
-  devise_for :users, controllers: {
-    registrations: 'users/registrations'
-  }
 
-  root 'items#index'
+  devise_for :users
+  root 'products#index'
+
 
   resources :users, only: [:show, :new, :create]
 
@@ -14,7 +13,8 @@ Rails.application.routes.draw do
   resources :products, only: [:new,:create] do
   end
 
-
+  #マイページ
+  get 'mypage',  to: 'mypage#index',    as: :maypage_top
 
 
 end
