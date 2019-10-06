@@ -13,8 +13,15 @@ Rails.application.routes.draw do
   resources :products, only: [:new,:create] do
   end
 
+
+
+
+
+
+
   #マイページ
   get 'mypage',  to: 'mypage#index',    as: :maypage_top
+
 
 
 end
