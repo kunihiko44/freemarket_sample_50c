@@ -1,5 +1,6 @@
 class ProductsController < ApplicationController
   def index
+    @products = Product.includes(:images)
   end
 
   def new
@@ -22,6 +23,7 @@ class ProductsController < ApplicationController
   def show
     @product = Product.find(params[:id])
     @product = Product.order(created_at: :desc).limit(6)
+    @images = @product.images
   end
 
   private

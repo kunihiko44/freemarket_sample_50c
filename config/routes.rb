@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
   devise_for :users
-  root 'items#index'
+  root 'products#index'
 
   #商品ページ
   get  'sell',   to: 'products#new',    as: :new_product
@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   end
 
   #マイページ
-  root 'mypage#index'
+  get 'mypage',  to: 'mypage#index',    as: :maypage_top
 
 
 end
