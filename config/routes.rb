@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   #商品ページ
   get  'sell',   to: 'products#new',    as: :new_product
   post 'sell',   to: 'products#create', as: :create_product
-  resources :products, only: [:new,:create] do
+  resources :products, only: [:new,:create,:show,:edit,:update] do
   end
 
   #マイページ
