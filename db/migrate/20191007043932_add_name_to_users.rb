@@ -10,7 +10,7 @@ class AddNameToUsers < ActiveRecord::Migration[5.2]
     add_column  :users, :city, :string, null: false
     add_column  :users, :address, :string, null: false
     add_column  :users, :building, :string
-    add_column  :users, :phone, :integer, null: false
+    add_column  :users, :phone, :string, null: false
     add_column  :users, :birthday, :date, null: false
     add_column  :users, :money, :integer, default: 0
     add_column  :users, :point, :integer, default: 0

@@ -1,47 +1,27 @@
 # frozen_string_literal: true
 
 class Users::RegistrationsController < Devise::RegistrationsController
-  # before_action :configure_sign_up_params, only: [:create]
-  # before_action :configure_account_update_params, only: [:update]
 
-  # GET /resource/sign_up
-  # def new
-  #   super
-  # end
+  def new
+    @user = User.new
+  end
 
-  # POST /resource
+
   def create
     @user = User.new(user_params)
       if @user.save
-          render 'items/index'
+          redirect_to maypage_top_path
       else
           render 'new'
       end
   end
 
-  # GET /resource/edit
-  # def edit
-  #   super
-  # end
+  def show
+  end
 
-  # PUT /resource
-  # def update
-  #   super
-  # end
 
-  # DELETE /resource
-  # def destroy
-  #   super
-  # end
 
-  # GET /resource/cancel
-  # Forces the session data which is usually expired after sign
-  # in to be expired now. This is useful if the user wants to
-  # cancel oauth signing in/up in the middle of the process,
-  # removing all OAuth session data.
-  # def cancel
-  #   super
-  # end
+
   private
   def user_params
      params.require(:user).permit(:name, :email, :password, :password_confirmation, :last_name, :first_name, :last_name_kana, :first_name_kana, :birthday, :postal_code, :prefecture, :city, :address, :building, :phone)
