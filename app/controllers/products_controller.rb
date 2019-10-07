@@ -1,4 +1,7 @@
 class ProductsController < ApplicationController
+  
+  before_action :set_product, only: [:edit, :update, :show, :destroy]
+
   def index
     @products = Product.includes(:images)
   end
@@ -24,6 +27,21 @@ class ProductsController < ApplicationController
     @product = Product.find(params[:id])
     @product = Product.order(created_at: :desc).limit(6)
     @images = @product.images
+  end
+
+  def edit
+    @image = Image.new
+  end
+
+  def update
+    if @product.update(product_params) 
+      remove_product_images
+    else
+      render :edit
+    end
+  end
+
+  def destroy
   end
 
   private
@@ -56,6 +74,21 @@ class ProductsController < ApplicationController
       end
     else
       return false
+    end
+  end
+
+  def set_product
+    @product = Product.find(params[:id])
+  end
+
+  def remove_product_images
+    @product.images.each do |image|
+      image.destroy
+    end
+    if save_images(@product, image_params)
+      redirect_to controller: :products, action: :new
+    else
+      render :edit
     end
   end
 
