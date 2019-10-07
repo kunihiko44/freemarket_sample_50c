@@ -3,6 +3,8 @@ Rails.application.routes.draw do
   devise_for :users
   root 'products#index'
 
+  resources :users, only: [:show, :new, :create]
+
   #商品ページ
   get  'sell',   to: 'products#new',    as: :new_product
   post 'sell',   to: 'products#create', as: :create_product
