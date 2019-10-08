@@ -7,8 +7,9 @@ Rails.application.routes.draw do
   }
   
   root 'products#index'
+  get 'logout' => 'users#logout'
 
-  resources :users, only: [:show, :new, :create, :index]
+  resources :users, only: [:show, :new, :create, :index,]
 
   #商品ページ
   get  'sell',   to: 'products#new',    as: :new_product

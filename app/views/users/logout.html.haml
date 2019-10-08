@@ -1,0 +1,12 @@
+=render partial: 'layouts/header'
+
+.mypage
+  %main.mypage__box
+    .maypage-sidebar
+      = render partial: "users/mypage-sidemenu"
+    .mypage-content
+      .mypage-content__logoutbox
+        .mypage-content__logoutbox__logout
+          = link_to "ログアウト", destroy_user_session_path, {method: :delete, class: "logoutbutton"}
+
+= render partial: 'layouts/footer'
