@@ -102,6 +102,35 @@
   }
 }
 
+@mixin select-box {
+  margin-top: 8px;
+  position: relative;
+  select {
+    @include input-default;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    cursor: pointer;
+  }
+  span {
+    margin: 0 8px;
+  }
+  .icon-chevron-bottom {
+    position: absolute;
+    right: 15px;
+    top: 35%;
+    z-index: 2;
+    &:after {
+      font-family: "Font Awesome 5 Free";
+      content: '\f078';
+      font-weight: 900;
+      color: #888;
+      font-size: 18px;
+    }
+  }
+}
+
+
 .sub-container {
   .sign-up {
     .panel {
@@ -126,7 +155,6 @@
   }
 }
 
-.sub-container {
   .sign-in {
     .panel {
       background: #fff;
@@ -181,12 +209,187 @@
             display: block;
             margin-top: 40px;
             text-align: left;
-            color: #0099e8e;
+            color: #099e8e;
             &:hover {
               text-decoration: underline #0099e8;
               opacity: 0.7;
             }
           }
+        }
+      }
+    }
+  }
+
+
+.registration {
+  .panel {
+    background: #fff;
+    width: 700px;
+    margin: 0 auto;
+    &__head {
+      padding: 38px 16px;
+      font-weight: 700;
+      font-size: 22px;
+      border-bottom: 2px solid #f5f5f5;
+      &--small-padding {
+        @extend .panel__head;
+        padding: 13px 4% !important;
+        font-size: 24px;
+      }
+    }
+    &__inner {
+      padding: 64px;
+      .content {
+        max-width: 320px;
+        margin: 0 auto;
+        .form-group {
+          margin-top: 40px;
+          text-align:left;
+          &:first-child {
+            margin-top: 0;
+          }
+          &__label {
+            font-weight: 600;
+          }
+          &__require {
+            background: #ea352d;
+            margin: 0 0 0 8px;
+            padding: 2px 4px;
+            border-radius: 2px;
+            color: #fff;
+            font-size: 12px;
+            vertical-align: top;
+          }
+          &__optional {
+            background: #ccc;
+            margin: 0 0 0 8px;
+            padding: 2px 4px;
+            border-radius: 2px;
+            color: #fff;
+            font-size: 12px;
+            vertical-align: top;
+          }
+          &__input {
+            @include input-default;
+            width: 100%;
+            margin: 8px 0 0;
+          }
+          &__card-logos {
+            display: flex;
+            padding-top: 5px;
+            width: 120px;
+            justify-content: space-between;
+          }
+          &__head {
+            font-size: 14px;
+            font-weight: 700;
+          }
+          &__left-text {
+            margin-top: 8px;
+            line-height: 21px;
+          }
+          &__center-text {
+            margin-top: 8px;
+            line-height: 21px;
+            text-align:center;
+            a {
+              color: #0098e8;
+              &:hover {
+                text-decoration: underline #0098e8;
+                opacity: 0.7;
+              }
+            }
+          }
+          &__birthday-select-wrap {
+            display: flex;
+            &__left {
+              @include select-box;
+              width: 200px;
+              select {
+                width: 140px;
+                margin-top: 10px;
+              }
+            }
+            &__right {
+              margin-top: 14px;
+              .chevron-box {
+                height: 58px;
+                width: 10px;
+                position: relative;
+                .icon-chevron-bottom {
+                  position: absolute;
+                  right: 80px;
+                  top: 35%;
+                  z-index: 2;
+                  &:after {
+                    font-family: "Font Awesome 5 Free";
+                    content: '\f078';
+                    font-weight: 900;
+                    color: #888;
+                    font-size: 18px;
+                  }
+                }
+              }
+            }
+          }
+          &__prefecture-select-wrap {
+            @include select-box;
+          }
+          &__expiration-wrap {
+            @include select-box;
+            select {
+              width: 140px;
+            }
+            .icon-chevron-bottom {
+              left: 110px;
+            }
+          }
+          &__info-link {
+            text-align: right;
+            display: block;
+            margin-top: 40px;
+            color: #0098e8;
+            &:hover {
+              text-decoration: underline #0098e8;
+              opacity: 0.7;
+            }
+            &:after {
+              font-family: "Font Awesome 5 Free";
+              content: '\f054';
+              font-weight: 900;
+            }
+          }
+          &__card-info {
+            display: flex;
+            justify-content: flex-end;
+            margin-top: 10px;
+            color: #0098e8;
+            a:hover {
+              text-decoration: underline #0098e8;
+              opacity: 0.7;
+            }
+            .icon-question-circle:before {
+              font-family: "Font Awesome 5 Free";
+              content: '\f059';
+              font-weight: 900;
+            }
+          }
+        }
+        .form-info-text {
+          margin: 8px 0 0;
+          line-height: 1.5;
+          color: #888;
+        }
+        .registration-next-btn {
+          margin-top: 40px;
+          display: block;
+          width: 100%;
+          line-height: 48px;
+          font-size: 14px;
+          background: #ea352d;
+          border: 1px solid #ea352d;
+          color: #fff;
+          cursor: pointer;
         }
       }
     }

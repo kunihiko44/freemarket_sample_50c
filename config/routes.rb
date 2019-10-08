@@ -1,7 +1,15 @@
 Rails.application.routes.draw do
 
-  devise_for :users
+  devise_for :users, controllers: {
+    registrations: 'users/registrations',
+    sessions: 'users/sessions',
+    passwords: 'users/passwords'
+  }
+  
   root 'products#index'
+  get 'logout' => 'users#logout'
+
+  resources :users, only: [:show, :new, :create, :index,]
 
   #商品ページ
   get  'sell',   to: 'products#new',    as: :new_product
@@ -9,8 +17,7 @@ Rails.application.routes.draw do
   resources :products, only: [:new,:create,:show,:edit,:update] do
   end
 
-  #マイページ
-  get 'mypage',  to: 'mypage#index',    as: :maypage_top
+
 
 
 end

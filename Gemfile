@@ -90,3 +90,4 @@ gem 'font-awesome-sass', '5.3.1'
 gem 'devise'
 
 gem 'jquery-rails'
+gem 'pry-rails'
