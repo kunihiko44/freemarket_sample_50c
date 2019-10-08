@@ -89,16 +89,14 @@
                       .sublink-content-todo-text
                         %span 現在、やることリストはありません
             %li.list-mypage
-              = link_to user_path(current_user.id) do
+              = link_to users_path(current_user.id) do
                 %span マイページ
               %ul
                 .sublink-mypage
                   %li
-                    = image_tag "common/logo-gray.svg", size: "350x90",class: 'sublink-maypage-img'
-                  %li
                     = image_tag "common/logo-gray.svg" ,size: "75x75", alt: "", class: "sublink-maypagemember_photo"
                   %li
-                    = link_to user_path(current_user.id),class: "sublink-maypage-link" do
+                    = link_to users_path(current_user.id),class: "sublink-maypage-link" do
                       ユーザー名：#{current_user.name}
           - else
             .new-registration-btn

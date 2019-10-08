@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   
   root 'products#index'
 
-  resources :users, only: [:show, :new, :create]
+  resources :users, only: [:show, :new, :create, :index]
 
   #商品ページ
   get  'sell',   to: 'products#new',    as: :new_product
@@ -16,8 +16,7 @@ Rails.application.routes.draw do
   resources :products, only: [:new,:create] do
   end
 
-  #マイページ
-  get 'mypage',  to: 'mypage#index',    as: :maypage_top
+
 
 
 end
