@@ -45,6 +45,7 @@
 .slideContents #slide2 { animation-delay: -6s; }
 
 .header {
+  height: 110px;
   &__container {
     box-sizing: border-box;
     height: 90px;
@@ -114,6 +115,8 @@
           display: flex;
           justify-content: center;
           align-items: center;
+          float: right;
+          margin-top: 0;
         }
         & li {
           padding-left: 20px;
@@ -301,43 +304,7 @@
     }
   }
 }
-.header__bred-crumbs {
-  border-top: 1px solid #eee;
-  border-top-width: 1px;
-  border-top-style: solid;
-  border-top-color: rgb(238, 238, 238);
-  box-shadow: 0 3px 3px 0 rgba(0,0,0,0.16);
 
-  & ul {
-    width: 1020px;
-    padding: 16px 0;
-    margin: 0 auto;
-    display: flex;
-    text-shadow: none;
-    align-items: center;
-  }
-  .headerbred-crumbs__link {
-    text-decoration: none;
-    display: inline-block;
-    text-decoration: none;
-    font-size: 14px;
-    line-height: 1.2;
-    color: black;
-  }
-  .fa-chevron-right {
-    margin: 0 8px;
-    font-size: 9px;
-    color: #888;
-  }
-  span {
-    text-decoration: none;
-  }
-}
-::selection {
-  background-color: #b3d4fc;
-  color: #fff;
-  text-shadow: none;
-}
 .new-registration-btn {
   box-sizing:border-box;
   background-color: rgb(234, 53, 45);
@@ -372,7 +339,7 @@
   padding: 6px 10px;
   transition: all 0.3s ease-out 0s;
   text-align: center;
-  margin-left: 11px;
+  margin: 11px;
   height: 32px;
   a {
     color: rgb(0, 149, 238);
