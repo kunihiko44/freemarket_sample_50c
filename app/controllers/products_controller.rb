@@ -44,6 +44,9 @@ class ProductsController < ApplicationController
   def destroy
   end
 
+  def confirm
+  end
+
   private
 
   def product_params
