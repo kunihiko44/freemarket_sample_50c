@@ -8,6 +8,8 @@ Rails.application.routes.draw do
   
   root 'products#index'
   get 'logout' => 'users#logout'
+  get 'confirm' => 'products#confirm'
+  get 'pay' => 'products#pay'
 
   resources :users, only: [:show, :new, :create, :index,]
 

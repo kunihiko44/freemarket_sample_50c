@@ -1,6 +1,6 @@
 class ProductsController < ApplicationController
   
-  before_action :set_product, only: [:edit, :update, :show, :destroy]
+  before_action :set_product, only: [:edit, :update, :show, :destroy,]
 
   def index
     @products = Product.includes(:images)
@@ -45,6 +45,16 @@ class ProductsController < ApplicationController
   end
 
   def confirm
+  end
+
+  def pay
+    Payjp.api_key = 'sk_test_601fb5e6f2e07120aaf7ef8a'
+    Payjp::Charge.create(
+      amount: @products.price, # 決済する値段
+      card: params['payjp-token'],
+      currency: 'jpy'
+    )
+    redirect_to root_path
   end
 
   private
