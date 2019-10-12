@@ -10,7 +10,7 @@ gem 'mysql2', '>= 0.4.4', '< 0.6.0'
 # Use Puma as the app server
 gem 'puma', '~> 3.11'
 # Use SCSS for stylesheets
-gem 'sass-rails', '~> 5.0'
+gem 'sass-rails', '5.0.7'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
@@ -34,14 +34,14 @@ gem 'jbuilder', '~> 2.5'
 # gem 'capistrano-rails', group: :development
 
 # Reduces boot times through caching; required in config/boot.rb
-gem 'bootsnap', '>= 1.1.0', require: false
+gem 'bootsnap', '1.4.4', require: false
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
-  gem 'capistrano'
+  gem 'capistrano', '3.11.0'
   gem 'capistrano-rbenv'
-  gem 'capistrano-bundler'
+  gem 'capistrano-bundler', '1.5.0'
   gem 'capistrano-rails'
   gem 'capistrano3-unicorn'
   gem 'rspec-rails'
@@ -62,8 +62,8 @@ end
 
 group :test do
   # Adds support for Capybara system testing and selenium driver
-  gem 'capybara', '>= 2.15'
-  gem 'selenium-webdriver'
+  gem 'capybara', '3.25.0'
+  gem 'selenium-webdriver', '3.142.3'
   # Easy installation and use of chromedriver to run system tests with Chrome
   gem 'webdrivers', '~> 3.0'
 end
@@ -79,13 +79,15 @@ end
 gem 'active_hash'
 gem 'dropzonejs-rails'
 	
-gem 'mini_magick'
-gem 'carrierwave'
-gem 'fog-aws'
+gem 'mini_magick', '4.9.3'
+gem 'carrierwave', '1.3.1'
+gem 'fog-aws', '3.5.1'
 
 gem 'haml-rails'
 gem 'erb2haml'
 gem "font-awesome-rails"
 gem 'font-awesome-sass', '5.3.1'
+gem 'devise'
 
 gem 'jquery-rails'
+gem 'pry-rails'

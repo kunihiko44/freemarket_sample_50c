@@ -5,7 +5,7 @@
 .body
   .product-exhibition
     .product-exhibition__head 商品情報を入力
-    = form_for(@product, :url => {:action => :create}) do |f|
+    = form_for(@product, url: url, method: method.to_sym) do |f|
       
       -# 出品画像
       .product-exhibition__form__group

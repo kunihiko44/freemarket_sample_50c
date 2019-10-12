@@ -1,0 +1,13 @@
+.sub-wrapper
+  = render partial: "/layouts/sub-header"
+  .sub-container
+    .sign-up
+      .panel
+        .panel__head 新規会員登録
+        .panel__inner
+          .mail-registration
+            .mail-registration__left
+              %i.fa.fa-envelope
+            .mail-registration__right
+              = link_to "メールアドレスで登録", new_user_registration_path
+  = render partial: "/layouts/sub-footer" 

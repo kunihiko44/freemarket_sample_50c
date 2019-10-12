@@ -1,0 +1,152 @@
+.sub-wrapper {
+  text-align: center;
+  position: relative;
+  padding-bottom: 220px;
+  min-height: 100vh;
+  .sub-header {
+    padding-top: 41px;
+    margin-right: 8px;
+    height: 128px;
+    &__logo:hover {
+      opacity: 0.7;
+    }
+  }
+  .sub-footer {
+    height: 220px;
+    width: 456px;
+    padding: 40px 0;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin:auto;
+    &__menu {
+      display: flex;
+      font-size: 12px;
+      justify-content: center;
+      height: 12px;
+      &__privacy:hover, &__terms:hover, &__notation:hover {
+        text-decoration: underline;
+        opacity: 0.7;
+      }
+      &__terms {
+        margin-left: 16px;
+      }
+      &__notation {
+        margin-left: 16px;
+      }
+    }
+    &__logo {
+      margin-top: 40px;
+      img:hover {
+        opacity: 0.7;
+      }
+    }
+    &__small-text {
+      small {
+        font-size: 12px;
+      }
+      margin-top: 7px;
+    }
+  }
+  .sub-header-flex {
+    display: flex;
+    justify-content: center;
+    height: 128px;
+    &__left {
+      margin: 41px 2px 0 0;
+      a {
+        display: inline-block;
+        width: 185px;
+        height: 49px;
+        line-height: 49px;
+        margin-right: 8px;
+        img {
+          width: 185px;
+          height: 49px;
+          &:hover {
+            opacity: 0.7;
+          }
+        }
+      }
+    }
+    &__right {
+      padding: 40px 0 0 44px;
+      .progress-bar {
+        display: flex;
+        &__progress {
+          position: relative;
+          z-index: 1;
+          display: inline-block;
+          min-width: 60px;
+          margin-right: 40px;
+          font-size: 12px;
+          &__text {
+            font-size: 12px;
+            color: #888;
+          }
+          &__status {
+            height: 12px;
+            width: 12px;
+            border-radius: 50%;
+            background: #ccc;
+            margin: 8px auto 0;
+            &:before, &:after {
+              display: block;
+              content: '';
+              z-index: -1;
+              position: absolute;
+              bottom: 5px;
+              width: 100%;
+              height: 2px;
+              background: #ccc;
+            }
+            &:before {
+              right: 50%;
+            }
+            &:after {
+              left: 50%;
+            }
+          }
+          &:first-child {
+            .progress-bar__progress__status {
+              &:before {
+                content: none;
+              }
+            }
+          }
+          &:last-child {
+            margin-right: 0;
+            .progress-bar__progress__status {
+              &:after {
+                content: none;
+              }
+            }
+          }
+          &--active {
+            @extend .progress-bar__progress;
+            .progress-bar__progress__text {
+              font-weight: 600;
+              color: #ea352d;
+            }
+            .progress-bar__progress__status {
+              background: #ea352d;
+              &:before {
+                background: #ea352d;
+              }
+            }
+          }
+          &--through {
+            @extend .progress-bar__progress;
+            .progress-bar__progress__status {
+              background: #ea352d;
+              &:before,&:after {
+                background: #ea352d;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
