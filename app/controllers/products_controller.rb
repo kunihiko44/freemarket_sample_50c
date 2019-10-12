@@ -24,9 +24,8 @@ class ProductsController < ApplicationController
   end
 
   def show
-    @product = Product.find(params[:id])
-    @product = Product.order(created_at: :desc).limit(6)
-    @images = @product.images
+    @products = Product.includes(:images)
+    
   end
 
   def edit
