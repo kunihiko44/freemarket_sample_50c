@@ -1,5 +1,6 @@
 class ProductsController < ApplicationController
   
+  before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
   before_action :set_product, only: [:edit, :update, :show, :destroy]
 
   def index
@@ -41,6 +42,7 @@ class ProductsController < ApplicationController
   end
 
   def destroy
+    @product.destroy if @product.user_id === current_user.id
   end
 
   private
@@ -58,7 +60,7 @@ class ProductsController < ApplicationController
       :delivery_cost_id,
       :delivery_method_id,
       :prefecture_id
-    )
+    ).merge(user_id: current_user.id)
   end
 
   def image_params
