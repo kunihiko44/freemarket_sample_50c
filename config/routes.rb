@@ -15,6 +15,10 @@ Rails.application.routes.draw do
   get  'sell',   to: 'products#new',    as: :new_product
   post 'sell',   to: 'products#create', as: :create_product
   resources :products, only: [:new,:create,:show,:edit,:update] do
+    member do
+      get 'confirm'
+      post 'pay' => 'products#pay'
+    end
   end
 
 

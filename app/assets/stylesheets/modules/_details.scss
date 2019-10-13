@@ -1,3 +1,18 @@
+@mixin btn-default{
+  display: block;
+  width: 100%;
+  color: white;
+  text-align: center;
+  line-height: 48px;
+  font-size: 14px;
+  cursor: pointer;
+ }
+
+@mixin btn-red{
+  background-color: #ea352d;
+  border: 1px solid #ea352d;
+ }
+
 .item-box-container{
   background: #fff;
   margin: 40px auto 0;
@@ -89,6 +104,16 @@
     .item-shipping-fee {
       display: inline-block;
       font-size: 16px;
+    }
+    .buy-btn{
+      @include btn-default;
+      @include btn-red;
+      font-size: 24px;
+      font-weight: normal;
+      margin-bottom:20px;
+      a {
+        display: block;
+      }
     }
   }
   .item-description{
