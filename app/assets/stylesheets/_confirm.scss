@@ -89,13 +89,12 @@
               font-weight: 900;
             }
           }
-          .buy-confirm-btn{
-            @include btn-default;
-            @include btn-red;
-            width: 300px;
-            margin:0 auto 30px;
-
-          }
+          //.buy-confirm-btn{
+            //@include btn-default;
+            //@include btn-red;
+            //width: 300px;
+            //margin:0 auto 30px;
+          //}
         }// end buy-price
       } //end item-info
     }
