@@ -7,16 +7,17 @@
         %section.buy-content
           .item-info
             %h3.item-info__image
-              =image_tag ('common/logo.svg'), alt: '商品画像', class: "confirm-image"
-            %p.item-info__name 日本国旗
-            %p.item-info__price ¥2000
+              = @product.images.present? ? (image_tag @product.images.first.name.url, alt: '商品画像', class: "confirm-image") : (image_tag 'common/no_image.png', alt: '画像がありません')
+            %p.item-info__name
+              = @product.name
             %ul.buy-price
               %li.buy-price__inner
                 .buy-price__inner__cell 支払い金額
-                .buy-price__inner__cell ¥4000
+                .buy-price__inner__cell 
+                  = "¥ #{number_with_delimiter@product.price}"
               %p
                 -#=link_to "購入する", pay_path(current_user.id), class: "buy-confirm-btn"
-                = form_with url: pay_path do
+                = form_with url: pay_product_path do
                   :plain
                     <script type="text/javascript" src="https://checkout.pay.jp" class="payjp-button" data-key="pk_test_415c1e8b20431b96ce1eb587"></script>
         %hr.line
@@ -36,14 +37,5 @@
                 =current_user.name
               %p.link-to-change.icon-arrow-r
                 =link_to "変更する"
-          %hr.line
-          .card-info
-            %h3.card-info__header 支払い方法
-            %p.card-info__num
-              = "**** **** ****"
-            %p.card-info__date
-              = "#●● / ●●"
-            %p.link-to-change.icon-arrow-r
-              =link_to "変更する"
 
 = render partial: "layouts/sub-footer"

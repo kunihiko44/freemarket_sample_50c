@@ -8,8 +8,6 @@ Rails.application.routes.draw do
   
   root 'products#index'
   get 'logout' => 'users#logout'
-  get 'confirm' => 'products#confirm'
-  get 'pay' => 'cards#pay'
 
   resources :users, only: [:show, :new, :create, :index,]
 
@@ -17,6 +15,10 @@ Rails.application.routes.draw do
   get  'sell',   to: 'products#new',    as: :new_product
   post 'sell',   to: 'products#create', as: :create_product
   resources :products, only: [:new,:create,:show,:edit,:update] do
+    member do
+      get 'confirm'
+      post 'pay' => 'products#pay'
+    end
   end
 
 

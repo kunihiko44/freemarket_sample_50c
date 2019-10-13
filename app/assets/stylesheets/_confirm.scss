@@ -8,13 +8,11 @@
   cursor: pointer;
  }
 
- // 赤色ボタンならこちらbtn-default+btn-red。組み合わせてください。
  @mixin btn-red{
   background-color: #ea352d;
   border: 1px solid #ea352d;
  }
 
- // グレーのボタン
  @mixin btn-gray{
   background-color: #979797;
   border: 1px solid #979797;
@@ -123,10 +121,6 @@
         }
       }
     } //end user-info
-
-      .card-info{
-        padding-bottom: 60px;
-      }
     }//end panel
   } // end single container
 }
