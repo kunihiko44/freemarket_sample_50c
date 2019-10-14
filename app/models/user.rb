@@ -1,6 +1,7 @@
 class User < ApplicationRecord
 
   has_many :products
+  has_many :cards
 
   with_options presence: true do
     validates :name

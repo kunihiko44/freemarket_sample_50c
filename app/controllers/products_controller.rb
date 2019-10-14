@@ -1,7 +1,8 @@
 class ProductsController < ApplicationController
-  
+
+  require "payjp"
   before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
-  before_action :set_product, only: [:edit, :update, :show, :destroy]
+  before_action :set_product, only: [:edit, :update, :show, :destroy, :confirm, :pay]
 
   def index
     @products = Product.includes(:images)
@@ -26,7 +27,6 @@ class ProductsController < ApplicationController
 
   def show
     @products = Product.includes(:images)
-    
   end
 
   def edit
@@ -45,6 +45,21 @@ class ProductsController < ApplicationController
     @product.destroy if @product.user.id === current_user.id
     redirect_to root_path
   end
+
+  def confirm
+    @products = Product.includes(:images)
+  end
+
+  def pay
+    Payjp.api_key = "sk_test_601fb5e6f2e07120aaf7ef8a"
+    Payjp::Charge.create(
+      amount: @product.price, # 決済する値段
+      card: params['payjp-token'], # フォームを送信すると作成・送信されてくるトークン
+      currency: 'jpy'
+    )
+      redirect_to root_path
+  end
+
 
   private
 
