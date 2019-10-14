@@ -14,7 +14,7 @@ Rails.application.routes.draw do
   #商品ページ
   get  'sell',   to: 'products#new',    as: :new_product
   post 'sell',   to: 'products#create', as: :create_product
-  resources :products, only: [:new,:create,:show,:edit,:update] do
+  resources :products, only: [:new,:create,:show,:edit,:update,:destroy] do
     member do
       get 'confirm'
       post 'pay' => 'products#pay'

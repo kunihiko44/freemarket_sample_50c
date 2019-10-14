@@ -1,6 +1,7 @@
 class ProductsController < ApplicationController
 
   require "payjp"
+  before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
   before_action :set_product, only: [:edit, :update, :show, :destroy, :confirm, :pay]
 
   def index
@@ -17,7 +18,7 @@ class ProductsController < ApplicationController
     @image = Image.new
     if @product.save & save_images(@product,image_params)
       flash[:notice] = "出品が完了しました"
-      redirect_to controller: :products, action: :new
+      redirect_to root_path
     else
       flash[:notice] = "画像がない、もしくは未入力の欄があります"
       render action: :new
@@ -41,6 +42,8 @@ class ProductsController < ApplicationController
   end
 
   def destroy
+    @product.destroy if @product.user.id === current_user.id
+    redirect_to root_path
   end
 
   def confirm
@@ -73,7 +76,7 @@ class ProductsController < ApplicationController
       :delivery_cost_id,
       :delivery_method_id,
       :prefecture_id
-    )
+    ).merge(user_id: current_user.id)
   end
 
   def image_params
@@ -100,7 +103,7 @@ class ProductsController < ApplicationController
       image.destroy
     end
     if save_images(@product, image_params)
-      redirect_to controller: :products, action: :new
+      redirect_to root_path
     else
       render :edit
     end

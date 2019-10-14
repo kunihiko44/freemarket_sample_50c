@@ -12,6 +12,7 @@ class CreateProducts < ActiveRecord::Migration[5.2]
       t.integer    :price,                   null: false
       t.bigint     :brand,                                foreign_key: true
       t.string     :delivery_date_id,        null: false
+      t.string     :user_id,                 null: false, foreign_key: true
       t.timestamps
     end
   end
