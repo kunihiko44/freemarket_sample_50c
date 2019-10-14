@@ -17,7 +17,7 @@ class ProductsController < ApplicationController
     @image = Image.new
     if @product.save & save_images(@product,image_params)
       flash[:notice] = "出品が完了しました"
-      redirect_to controller: :products, action: :new
+      redirect_to root_path
     else
       flash[:notice] = "画像がない、もしくは未入力の欄があります"
       render action: :new
@@ -42,7 +42,8 @@ class ProductsController < ApplicationController
   end
 
   def destroy
-    @product.destroy if @product.user_id === current_user.id
+    @product.destroy if @product.user.id === current_user.id
+    redirect_to root_path
   end
 
   private
@@ -87,7 +88,7 @@ class ProductsController < ApplicationController
       image.destroy
     end
     if save_images(@product, image_params)
-      redirect_to controller: :products, action: :new
+      redirect_to root_path
     else
       render :edit
     end
