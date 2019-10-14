@@ -8,10 +8,9 @@ class Product < ApplicationRecord
   belongs_to_active_hash :delivery_date
   belongs_to :category
 
-  has_many :images
+  has_many :images, dependent: :destroy
   belongs_to :user
 
-  mount_uploader :image, ImageUploader
 
 
   validates :name,:introduction,:price,:category,:state,:delivery_cost,:prefecture,:delivery_method,:delivery_date,:user_id, presence: true
