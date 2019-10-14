@@ -1,3 +1,24 @@
+@mixin btn-default{
+  display: block;
+  width: 100%;
+  color: white;
+  text-align: center;
+  line-height: 48px;
+  font-size: 14px;
+  cursor: pointer;
+ }
+
+@mixin btn-red{
+  background-color: #ea352d;
+  border: 1px solid #ea352d;
+ }
+
+@mixin btn-gray{
+  background-color: #aaa;
+  border: 1px solid #aaa;
+ }
+
+
 .item-box-container{
   background: #fff;
   margin: 40px auto 0;
@@ -90,6 +111,17 @@
       display: inline-block;
       font-size: 16px;
     }
+    .buy-btn{
+      @include btn-default;
+      @include btn-red;
+      font-size: 24px;
+      font-weight: normal;
+      margin-top: 20px;
+      margin-bottom:20px;
+      a {
+        display: block;
+      }
+    }  
   }
   .item-description{
     padding: 32px 0 0;
@@ -134,6 +166,39 @@
     a {
       color: #0099e8;
       text-decoration: none;
+    }
+  }
+}
+
+.item-detail-for_seller{
+  width: 700px;
+  margin: 25px auto 25px;
+  padding: 24px;
+  background-color: white;
+  .edit-btn{
+    @include btn-default;
+    @include btn-red;
+    font-size: 14px;
+    font-weight: normal;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    a {
+      display: block;
+    }
+  }
+  p{
+    margin-left: 320px;
+  }
+
+  .delete-btn{
+    @include btn-default;
+    @include btn-gray;
+    font-size: 14px;
+    font-weight: normal;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    a {
+      display: block;
     }
   }
 }
