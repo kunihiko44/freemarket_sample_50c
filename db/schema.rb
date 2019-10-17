@@ -58,6 +58,7 @@ ActiveRecord::Schema.define(version: 2019_10_10_134256) do
     t.text "introduction", null: false
     t.string "category_id", null: false
     t.string "size"
+    t.integer "buyer_id"
     t.string "state_id", null: false
     t.string "delivery_cost_id", null: false
     t.string "delivery_method_id", null: false
@@ -66,6 +67,7 @@ ActiveRecord::Schema.define(version: 2019_10_10_134256) do
     t.bigint "brand"
     t.string "delivery_date_id", null: false
     t.string "user_id", null: false
+    t.integer "status", default: 1, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["name"], name: "index_products_on_name"

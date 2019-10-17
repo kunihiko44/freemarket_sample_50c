@@ -18,4 +18,7 @@ class Product < ApplicationRecord
   validates :introduction,length:{ maximum: 1000 }
   validates :price, numericality:{ greater_than_or_equal_to: 300, less_than_or_equal_to: 9999999}
 
+  enum status: {
+    not_sale: 0, sale:1, soldout:2
+  }, _prefix: true
 end
