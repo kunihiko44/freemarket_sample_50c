@@ -1,0 +1,22 @@
+.box-contents
+  - @products.order('created_at DESC').where(category_id:1).limit(5).each do |product|
+    .items-box
+      .items-box_photo
+        = link_to product_path(id: product.id) do
+          = product.images.present? ? (image_tag product.images.first.name.url, alt: '商品画像') : (image_tag 'common/no_image.png', alt: '画像がありません')
+          -if product.status == "soldout"
+            .soldout
+      .items-box_body
+        %h3.items-box-name
+          = product.name
+        .items-box-num
+          .items-box-price
+            ¥ 
+            = product.price
+          .items-box-icon
+            %i.far.fa-heart
+        .items-box-tax
+          (税込)
+.view-all
+  %a{ href:'', class:"text-center__inner"}
+    すべての商品を見る   
