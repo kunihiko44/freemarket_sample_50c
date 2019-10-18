@@ -5,23 +5,21 @@
 .body
   .product-exhibition
     .product-exhibition__head 商品情報を入力
-    = form_for(@product, url: url, method: method.to_sym) do |f|
+    = form_for(@product, url: url, method: method.to_sym, html: { class: 'product-exhibition__form' } ) do |f|
       
       -# 出品画像
       .product-exhibition__form__group
         .product-exhibition__form__group__item
           %span.product-exhibition__form__group__item__large-label 出品画像
           %span.product-exhibition__form__group__item__necessary 必須
-        %p.product-exhibition__form__group__notice 最大10枚までアップロードできます
+        %p.product-exhibition__form__group__notice 
         .product-exhibition__form__group__image
           =f.fields_for @image do |fi|
-            .product-exhibition__form__group__image__upload-area
-              .image-preview
-                %p.product-exhibition__form__group__image__upload-area__top
-                  ドラッグアンドドロップ
-                  %br
-                  またはクリックしてファイルをアップロード
-              = fi.file_field :name, name: 'images[name][1]',id: 'image1', class: "product-exhibition__form__group__image__upload-area__hidden"
+            %ul.image-preview
+            .nest-form
+              .nest-form__head
+                %p クリックしてファイルをアップロード
+              = fi.file_field :name, name: 'images[name][1]',id: 'image1', style: 'display: none;'
 
 
       -# 商品名、商品の説明
@@ -106,19 +104,19 @@
               .product-exhibition__form__group__sell-price__list__price__right
                 %span ¥
                 .product-exhibition__form__group__text-box
-                  = f.text_field :price, autofocus: true, class: "product-exhibition__form__group__text-box__field__price",placeholder: "例）300"
+                  = f.text_field :price, autofocus: true, id: "product-exhibition__form__group__text-box__field__price",placeholder: "例）300",class: "product-exhibition__form__group__text-box__field__price"
             
             .product-exhibition__form__group__sell-price__list__fee
               .product-exhibition__form__group__sell-price__list__fee__left
                 %p 販売手数料(10%)
               .product-exhibition__form__group__sell-price__list__fee__right
-                %p -
+                %p.sell-fee -
             
             .product-exhibition__form__group__sell-price__list__profit
               .product-exhibition__form__group__sell-price__list__profit__left
                 %p 販売利益
               .product-exhibition__form__group__sell-price__list__profit__right
-                %p -
+                %p.sell-profit -
 
 
       -# 確認事項、出品ボタン、もどるボタン
