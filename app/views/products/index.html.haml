@@ -12,15 +12,15 @@
     %h2 ピックアップカテゴリー
     .pickup-box  
       = link_to "レディース新着アイテム"
-    =render partial: 'products/box-contents', locals:{products:@products.where(category_id: "1")}
+    =render partial: 'products/pickup/ladies'
 
     .pickup-box  
       = link_to "メンズ新着アイテム"
-    =render partial: 'products/box-contents', locals:{products:@products.where(category_id: "2")}
+    =render partial: 'products/pickup/mens'
 
     .pickup-box  
       = link_to "ベビー・キッズ 新着アイテム"
-    =render partial: 'products/box-contents', locals:{products:@products.where(category_id: "3")}
+    =render partial: 'products/pickup/kids'
 
   .aside
     .aside__banner

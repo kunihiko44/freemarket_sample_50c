@@ -1,5 +1,5 @@
 .box-contents
-  - @products.order('created_at DESC').limit(5).each do |product|
+  - @products.order('created_at DESC').where(category_id:2).limit(5).each do |product|
     .items-box
       .items-box_photo
         = link_to product_path(id: product.id) do

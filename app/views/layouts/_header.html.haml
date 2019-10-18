@@ -6,6 +6,7 @@
         = f.text_field :keyword, class: "header__container__search__input", type: "search", name: "keyword", placeholder: "何かお探しですか？"        
     .header__container__navigation
       .navigation-left
+      -#
         %ul#dropmenu
           %li
             .i.fa.fa-bars
@@ -17,8 +18,6 @@
                 = link_to 'メンズ', '#'
               %li
                 = link_to 'メンズ', '#'
-
-        
         %ul#dropmenu
           %li
             .i.fa.fa-tags
