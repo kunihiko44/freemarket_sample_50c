@@ -17,7 +17,7 @@ class ProductsController < ApplicationController
     @product = Product.new(product_params)
     @image = Image.new
     if @product.save & save_images(@product,image_params)
-      flash[:notice] = "出品が完了しました"
+      
       redirect_to root_path
     else
       flash[:notice] = "画像がない、もしくは未入力の欄があります"
