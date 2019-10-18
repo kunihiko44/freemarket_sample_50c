@@ -42,10 +42,31 @@
       height: 400px;
       margin: 0 auto;
       background: #fafafa;
+      position: relative;
       img{
         width: 100%;
         height: 100%;
         object-fit: contain;
+      }
+      .soldout::before{
+        content: "";
+        top: 0;
+        left: 0;
+        border-bottom: 100px solid transparent;
+        border-left: 100px solid #ea352d;
+        position: absolute;
+      }
+      .soldout::after{
+        content: "SOLD";
+        font-size: 23px;
+        font-weight: bold;
+        display: block;
+        top: 23px;
+        transform: rotate(-45deg);
+        color: #fff;
+        left: 3px;
+        position: absolute;
+        letter-spacing: 1px;
       }
     }
     .photo-details{
@@ -122,6 +143,14 @@
         display: block;
       }
     }  
+    .sold-out-btn {
+      @include btn-default;
+      @include btn-gray;
+      font-size: 24px;
+      font-weight: normal;
+      margin:10px 0 20px;
+      cursor: not-allowed;
+    }
   }
   .item-description{
     padding: 32px 0 0;

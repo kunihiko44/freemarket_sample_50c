@@ -57,7 +57,8 @@ class ProductsController < ApplicationController
       card: params['payjp-token'], # フォームを送信すると作成・送信されてくるトークン
       currency: 'jpy'
     )
-      redirect_to root_path
+      @product.update(buyer_id: current_user.id, status: 2)
+      redirect_to root_path, notice: '商品を購入しました'
   end
 
 
@@ -75,7 +76,8 @@ class ProductsController < ApplicationController
       :delivery_date_id,
       :delivery_cost_id,
       :delivery_method_id,
-      :prefecture_id
+      :prefecture_id,
+      :buyer_id
     ).merge(user_id: current_user.id)
   end
 

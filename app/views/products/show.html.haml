@@ -6,6 +6,8 @@
     .item-main-content
       .item-photo
         = @product.images.present? ? (image_tag @product.images.first.name.url, alt: '商品画像') : (image_tag 'common/no_image.png', alt: '画像がありません')
+        -if @product.status == "soldout"
+          .soldout
       %table.item-detail-table
         %tbody
           %tr
@@ -52,7 +54,9 @@
         %span.item-tax (税込)
         %span.item-shipping-fee 送料込み
 
-        - if user_signed_in? && current_user.id != @product.user.id
+        - if @product.status == "soldout"
+          .sold-out-btn 売り切れました
+        - elsif user_signed_in? && current_user.id != @product.user.id
           .buy-btn
             = link_to "購入画面に進む", confirm_product_path(params[:id])
 
