@@ -115,18 +115,11 @@
   span {
     margin: 0 8px;
   }
-  .icon-chevron-bottom {
+  i {
     position: absolute;
     right: 15px;
     top: 35%;
     z-index: 2;
-    &:after {
-      font-family: "Font Awesome 5 Free";
-      content: '\f078';
-      font-weight: 900;
-      color: #888;
-      font-size: 18px;
-    }
   }
 }
 
@@ -316,18 +309,11 @@
                 height: 58px;
                 width: 10px;
                 position: relative;
-                .icon-chevron-bottom {
+                i {
                   position: absolute;
                   right: 80px;
                   top: 35%;
                   z-index: 2;
-                  &:after {
-                    font-family: "Font Awesome 5 Free";
-                    content: '\f078';
-                    font-weight: 900;
-                    color: #888;
-                    font-size: 18px;
-                  }
                 }
               }
             }
