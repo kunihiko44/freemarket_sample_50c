@@ -11,8 +11,7 @@
           = product.name
         .items-box-num
           .items-box-price
-            ¥ 
-            = product.price
+            = "¥ #{number_with_delimiter product.price}"
         .items-box-tax
           (税込)
 .view-all
