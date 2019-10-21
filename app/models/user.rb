@@ -17,9 +17,12 @@ class User < ApplicationRecord
     validates :birthday
   end
 
+  VALID_PHONE_REGEX =                 /\A\d{10}$|^\d{11}\z/
+
   validates :name,            length: { maximum: 20 }
   validates :first_name_kana, format: { with: /\A[\p{katakana}\p{blank}ー－]+\z/ }
   validates :last_name_kana,  format: { with: /\A[\p{katakana}\p{blank}ー－]+\z/ }
+  validates :phone,           presence: true, uniqueness: true, format: { with: VALID_PHONE_REGEX }
 
   enum prefecture: {
     北海道:1,青森県:2,岩手県:3,宮城県:4,秋田県:5,山形県:6,福島県:7,
