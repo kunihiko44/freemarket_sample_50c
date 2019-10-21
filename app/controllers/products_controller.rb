@@ -15,13 +15,14 @@ class ProductsController < ApplicationController
   
   def create
     @product = Product.new(product_params)
-    @image = Image.new
     if @product.save & save_images(@product,image_params)
-      
       redirect_to root_path
+      flash[:notice] = "出品しました"
     else
+      @image = Image.new
       flash[:notice] = "画像がない、もしくは未入力の欄があります"
       render action: :new
+      @product.destroy
     end
   end
 
@@ -106,7 +107,10 @@ class ProductsController < ApplicationController
     end
     if save_images(@product, image_params)
       redirect_to root_path
+      flash[:notice] = "商品情報を編集しました"      
     else
+      @image = Image.new
+      flash[:notice] = "画像がない、もしくは未入力の欄があります"
       render :edit
     end
   end
