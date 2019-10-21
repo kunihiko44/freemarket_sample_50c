@@ -100,14 +100,24 @@
         } 
       .item-user-ratings {
         margin-top: 9px;
-        i{
-          color: #fba933;
-          font-size: 16px;
+        i.fa.fa-smile-o{
+          font-size: 18px;
           vertical-align: middle;
+          color: red;
+        }
+        i.fa.fa-meh-o{
+          font-size: 18px;
+          vertical-align: middle;
+          color: #fba933;
+        }
+        i.fa.fa-frown-o{
+          font-size: 18px;
+          vertical-align: middle;
+          color: #0099e8;
         }
 
         span {
-          margin: 0 16px 0 4px;
+          margin: 0 12px 0 2px;
           color: black;
           font-size: 14px;
           line-height: 1;
